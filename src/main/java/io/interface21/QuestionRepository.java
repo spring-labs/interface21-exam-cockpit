@@ -13,28 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.interface21.domain;
+package io.interface21;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
-import java.math.BigDecimal;
-
-import lombok.Getter;
-import org.ameba.jpa.BaseEntity;
+import io.interface21.domain.Question;
+import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 /**
- * A Answer.
+ * A QuestionRepository.
  *
  * @author <a href="mailto:scherrer@openwms.org">Heiko Scherrer</a>
  * @version 1.0
  * @since 1.0
  */
-@Entity
-@Getter
-public class AnswerDefinition extends BaseEntity {
+@RepositoryRestResource
+interface QuestionRepository extends PagingAndSortingRepository<Question, Long> {
 
-    private String text;
-    private BigDecimal weight;
-    @OneToOne
-    private Question question;
 }

@@ -18,6 +18,7 @@ package io.interface21.domain;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.OneToMany;
 import java.math.BigDecimal;
 import java.util.Set;
 
@@ -39,6 +40,6 @@ public class Question extends BaseEntity {
     private BigDecimal weight;
     @Enumerated(EnumType.STRING)
     private QuestionType examType;
-
+    @OneToMany
     private Set<AnswerDefinition> answers;
 }

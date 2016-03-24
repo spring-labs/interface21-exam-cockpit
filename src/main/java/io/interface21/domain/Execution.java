@@ -16,6 +16,8 @@
 package io.interface21.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -33,9 +35,12 @@ import lombok.Getter;
 @Getter
 public class Execution extends Exam {
 
+    @ManyToOne
+    private Candidate candidate;
     private LocalDateTime dateTaken;
     private LocalDateTime dateStarted;
     private BigDecimal achievedPoints;
     private boolean passed = false;
-    private Set<AnswerDefinition> questions;
+    @OneToMany
+    private Set<AnswerDefinition> answers;
 }

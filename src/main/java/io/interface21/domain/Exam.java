@@ -17,8 +17,6 @@ package io.interface21.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -33,7 +31,7 @@ import org.ameba.jpa.BaseEntity;
  * @since 1.0
  */
 @Entity
-@Table(name = "T_EXAM", uniqueConstraints = {@UniqueConstraint(name = "UC_", columnNames = {"C_BK", "C_ACTIVE"})})
+@Table(name = "T_EXAM", uniqueConstraints = {@UniqueConstraint(name = "UC_BK_ACTIVE", columnNames = {"C_BK", "C_ACTIVE"})})
 @Getter
 public class Exam extends BaseEntity {
 
