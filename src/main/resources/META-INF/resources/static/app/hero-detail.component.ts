@@ -1,15 +1,17 @@
-import { Component, OnInit } from 'angular2/core';
+import { Component, Input, OnInit } from 'angular2/core';
 import { RouteParams } from 'angular2/router';
 import { HeroService } from './hero.service';
 import { Hero } from './hero';
 
 @Component({
     selector: 'my-hero-detail',
-    templateUrl: 'app/hero-detail.component.html'
+    templateUrl: 'app/hero-detail.component.html',
+    styleUrls: ['app/hero-detail.component.css']
 })
 export class HeroDetailComponent implements OnInit {
 
-    hero: Hero
+    @Input() hero: Hero;
+
     constructor(
         private _heroService: HeroService,
         private _routeParams: RouteParams) {
@@ -24,6 +26,4 @@ export class HeroDetailComponent implements OnInit {
     goBack() {
         window.history.back();
     }
-
-
 }
