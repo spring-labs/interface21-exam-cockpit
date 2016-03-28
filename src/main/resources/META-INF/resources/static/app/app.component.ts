@@ -2,8 +2,7 @@ import {Component} from 'angular2/core';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
 import { HeroService }     from './hero.service';
 import { DashboardComponent } from './dashboard.component';
-import { HeroesComponent } from './heroes.component';
-import { HeroDetailComponent } from './hero-detail.component';
+import { CreateExamComponent } from './create-exam.component';
 
 @Component({
     selector: 'my-app',
@@ -11,7 +10,7 @@ import { HeroDetailComponent } from './hero-detail.component';
         <h1>{{title}}</h1>
         <nav>
             <a [routerLink]="['Dashboard']">Dashboard</a>
-            <a [routerLink]="['Heroes']">Heroes</a>
+            <a [routerLink]="['CreateExam']">Create Exam</a>
         </nav>
         <router-outlet></router-outlet>
     `,
@@ -30,17 +29,12 @@ import { HeroDetailComponent } from './hero-detail.component';
         useAsDefault: true
     },
     {
-        path: '/heroes',
-        name: 'Heroes',
-        component: HeroesComponent
-    },
-    {
-        path: '/detail/:id',
-        name: 'HeroDetail',
-        component: HeroDetailComponent
+        path: '/create-exam',
+        name: 'CreateExam',
+        component: CreateExamComponent
     }
 ])
 export class AppComponent {
     
-    title = 'Tour de Heroes';
+    title = 'Exam Commander';
 }
