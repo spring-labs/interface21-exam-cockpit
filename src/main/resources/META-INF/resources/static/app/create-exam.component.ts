@@ -10,9 +10,9 @@ export class CreateExamComponent implements OnInit {
 
 
     constructor(
-        private _heroService: HeroService,
-        private _router: Router
-    ) { }
+        private _router: Router,
+        private _heroService: HeroService
+    ){}
 
     ngOnInit() {
         this.getHeroes();
