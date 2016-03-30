@@ -5,12 +5,12 @@ import { Exam } from './exam';
 import { Question } from './question';
 
 @Component({
-    selector: 'add-question',
-    templateUrl: 'app/add-question.component.html'
+    selector: 'add-answer',
+    templateUrl: 'app/add-answer.component.html'
 })
-export class AddQuestionComponent implements OnInit {
+export class AddAnswerComponent implements OnInit {
 
-    title = "Add Question";
+    title = "Add Answer";
 
     @Input() exam: Exam;
     question: Question = {};
@@ -36,8 +36,7 @@ export class AddQuestionComponent implements OnInit {
     }
 
     addAnswer() {
-        let link = ['AddAnswer', { exam: this.exam }];
-        this._router.navigate(link);
+
     }
 
     complete() {

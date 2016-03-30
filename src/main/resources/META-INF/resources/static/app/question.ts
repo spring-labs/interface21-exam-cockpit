@@ -1,7 +1,7 @@
 export interface Question {
     id: number;
     text: string;
-    weight: string;
+    weight: number;
     questionType: string;
     answers: Array<Answer>;
 }

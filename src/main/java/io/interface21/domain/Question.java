@@ -40,6 +40,6 @@ public class Question extends BaseEntity {
     private BigDecimal weight;
     @Enumerated(EnumType.STRING)
     private QuestionType questionType;
-    @OneToMany
+    @OneToMany(mappedBy = "question")
     private Set<AnswerDefinition> answers;
 }

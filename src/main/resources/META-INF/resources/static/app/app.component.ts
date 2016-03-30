@@ -4,6 +4,7 @@ import { HeroService }     from './hero.service';
 import { ExamsComponent } from './exams.component';
 import { CreateExamComponent } from './create-exam.component';
 import { AddQuestionComponent } from './add-question.component';
+import { AddAnswerComponent } from './add-answer.component';
 
 @Component({
     selector: 'my-app',
@@ -37,6 +38,11 @@ import { AddQuestionComponent } from './add-question.component';
         path: '/add-question',
         name: 'AddQuestion',
         component: AddQuestionComponent
+    },
+    {
+        path: '/add-answer',
+        name: 'AddAnswer',
+        component: AddAnswerComponent
     }
 ])
 export class AppComponent {
