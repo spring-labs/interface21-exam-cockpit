@@ -3,12 +3,12 @@ import { Router } from 'angular2/router';
 import { Exam } from './exam'
 
 @Component({
-    selector: 'create-exam',
-    templateUrl: 'app/create-exam.component.html'
+    selector: 'add-question',
+    templateUrl: 'app/add-question.component.html'
 })
-export class CreateExamComponent {
+export class AddQuestionComponent {
 
-    title = "Exam Details";
+    title = "Add Question";
     exam: Exam = {};
 
     constructor(
@@ -20,4 +20,7 @@ export class CreateExamComponent {
         this._router.navigate(link);
     }
 
+    addAnswer(exam: Exam) {
+
+    }
 }

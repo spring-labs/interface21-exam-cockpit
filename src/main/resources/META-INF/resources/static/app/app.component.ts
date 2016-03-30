@@ -3,6 +3,7 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/route
 import { HeroService }     from './hero.service';
 import { ExamsComponent } from './exams.component';
 import { CreateExamComponent } from './create-exam.component';
+import { AddQuestionComponent } from './add-question.component';
 
 @Component({
     selector: 'my-app',
@@ -31,6 +32,11 @@ import { CreateExamComponent } from './create-exam.component';
         path: '/create-exam',
         name: 'CreateExam',
         component: CreateExamComponent
+    },
+    {
+        path: '/add-question',
+        name: 'AddQuestion',
+        component: AddQuestionComponent
     }
 ])
 export class AppComponent {

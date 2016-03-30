@@ -39,7 +39,7 @@ public class Question extends BaseEntity {
     private String text;
     private BigDecimal weight;
     @Enumerated(EnumType.STRING)
-    private QuestionType examType;
+    private QuestionType questionType;
     @OneToMany
     private Set<AnswerDefinition> answers;
 }
