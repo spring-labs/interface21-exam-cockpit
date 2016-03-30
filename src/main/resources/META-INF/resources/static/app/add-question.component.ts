@@ -14,7 +14,7 @@ export class AddQuestionComponent implements OnInit {
     title = "Add Question";
 
     @Input() exam: Exam;
-    question: Question;
+    question: Question = {};
 
     constructor(
         private _router: Router,
@@ -23,7 +23,6 @@ export class AddQuestionComponent implements OnInit {
 
     ngOnInit() {
         this.exam = this._routeParams.get('exam');
-        this.question = {};
         console.log(this.exam);
     }
 
@@ -34,6 +33,7 @@ export class AddQuestionComponent implements OnInit {
         } else {
             this.exam.questions.push(this.question);
         }
+        this.question = {};
         let link = ['AddQuestion', { exam: this.exam }];
         this._router.navigate(link);
     }

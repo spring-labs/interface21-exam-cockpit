@@ -2,6 +2,7 @@
 *.js.map
 *.js
 
+*npm-debug.log
 .mvn/
 .vscode/
 node_modules/
