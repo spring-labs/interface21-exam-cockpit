@@ -1,15 +1,14 @@
 import {Component} from 'angular2/core';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
 import { HeroService }     from './hero.service';
-import { DashboardComponent } from './dashboard.component';
+import { ExamsComponent } from './exams.component';
 import { CreateExamComponent } from './create-exam.component';
 
 @Component({
     selector: 'my-app',
     template: `
-        <h1>{{title}}</h1>
         <nav>
-            <a [routerLink]="['Dashboard']">Dashboard</a>
+            <a [routerLink]="['Exams']">View Exams</a>
             <a [routerLink]="['CreateExam']">Create Exam</a>
         </nav>
         <router-outlet></router-outlet>
@@ -23,9 +22,9 @@ import { CreateExamComponent } from './create-exam.component';
 })
 @RouteConfig([
     {
-        path: '/dashboard',
-        name: 'Dashboard',
-        component: DashboardComponent,
+        path: '/exams',
+        name: 'Exams',
+        component: ExamsComponent,
         useAsDefault: true
     },
     {
@@ -35,6 +34,4 @@ import { CreateExamComponent } from './create-exam.component';
     }
 ])
 export class AppComponent {
-    
-    title = 'Exam Commander';
 }

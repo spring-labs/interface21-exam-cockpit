@@ -8,23 +8,16 @@ import {Router} from 'angular2/router';
 })
 export class CreateExamComponent implements OnInit {
 
+    title = "Exam Details";
 
     constructor(
-        private _router: Router,
-        private _heroService: HeroService
+        private _router: Router
     ){}
 
     ngOnInit() {
-        this.getHeroes();
     }
     
     gotoDetail() {
-        this._router.navigate(['HeroDetail', { id: this.selectedHero.id }]);
     }
 
-    getHeroes() {
-        this._heroService.getHeroes().then(heroes => this.heroes = heroes);
-    }
-
-    onSelect(hero: Hero) { this.selectedHero = hero; }
 }
