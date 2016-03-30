@@ -16,7 +16,7 @@ export class CreateExamComponent {
     ){}
 
     addQuestion(exam: Exam) {
-        let link = ['AddQuestion', { exam: exam }];
+        let link = ['AddQuestion', { exam: this.exam }];
         this._router.navigate(link);
     }
 

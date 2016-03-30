@@ -3,5 +3,5 @@ export interface Question {
     text: string;
     weight: string;
     questionType: string;
-    answers: [];
+    answers: Array<Answer>;
 }

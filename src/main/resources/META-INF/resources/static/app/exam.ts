@@ -5,4 +5,5 @@ export interface Exam {
     maxScorePoints: number;
     version: string;
     active: boolean;
+    questions: Array<Question>;
 }

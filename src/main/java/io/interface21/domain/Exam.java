@@ -17,8 +17,10 @@ package io.interface21.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import java.util.Set;
 
 import lombok.Getter;
 import org.ameba.jpa.BaseEntity;
@@ -47,6 +49,8 @@ public class Exam extends BaseEntity {
     /** Only one Exam version can be active, older versions are set to inactive. */
     @Column(name = "C_ACTIVE")
     private boolean active;
+    @OneToMany
+    private Set<Question> questions;
 
     /**
      * Dear JPA...
