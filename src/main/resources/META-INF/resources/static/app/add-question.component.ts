@@ -1,6 +1,7 @@
 import { Component } from 'angular2/core';
 import { Router } from 'angular2/router';
-import { Exam } from './exam'
+import { Exam } from './exam';
+import { Question } from './question';
 
 @Component({
     selector: 'add-question',
@@ -9,18 +10,22 @@ import { Exam } from './exam'
 export class AddQuestionComponent {
 
     title = "Add Question";
-    exam: Exam = {};
+    question: Question = {};
 
     constructor(
         private _router: Router
     ){}
 
-    addQuestion(exam: Exam) {
-        let link = ['AddQuestion', { exam: exam }];
+    addQuestion() {
+        let link = ['AddQuestion', { exam: this.exam }];
         this._router.navigate(link);
     }
 
-    addAnswer(exam: Exam) {
+    addAnswer() {
+
+    }
+
+    complete() {
 
     }
 }
