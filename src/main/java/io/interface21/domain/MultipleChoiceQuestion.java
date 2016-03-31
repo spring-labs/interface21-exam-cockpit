@@ -16,6 +16,7 @@
 package io.interface21.domain;
 
 import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.util.Set;
 
@@ -26,9 +27,10 @@ import java.util.Set;
  * @version 1.0
  * @since 1.0
  */
+@Entity
 @DiscriminatorValue("MULTIPLE")
-class MultipleChoiceQuestion extends Question {
+class MultipleChoiceQuestion extends Question<CheckableAnswer> {
 
     @OneToMany(mappedBy = "question")
-    private Set<AnswerDefinition> answers;
+    private Set<CheckableAnswer> answers;
 }

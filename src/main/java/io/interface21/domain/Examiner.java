@@ -16,6 +16,7 @@
 package io.interface21.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 import lombok.Getter;
 
@@ -27,6 +28,7 @@ import lombok.Getter;
  * @since 1.0
  */
 @Entity
+@Table(name = "T_EXAMINER")
 @Getter
 public class Examiner extends Person {
 

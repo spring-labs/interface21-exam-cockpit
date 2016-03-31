@@ -17,6 +17,7 @@ package io.interface21.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import java.math.BigDecimal;
 
 import lombok.Getter;
@@ -30,6 +31,7 @@ import org.ameba.jpa.BaseEntity;
  * @since 1.0
  */
 @Entity
+@Table(name = "T_ANSWER_DEF")
 @Getter
 public class AnswerDefinition extends BaseEntity {
 

@@ -16,6 +16,7 @@
 package io.interface21.domain;
 
 import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
 /**
@@ -25,9 +26,10 @@ import javax.persistence.OneToOne;
  * @version 1.0
  * @since 1.0
  */
+@Entity
 @DiscriminatorValue("TEXTUAL")
-class FreetextQuestion extends Question {
+class FreetextQuestion extends Question<TextualAnswer> {
 
     @OneToOne
-    private AnswerDefinition answer;
+    private TextualAnswer answer;
 }

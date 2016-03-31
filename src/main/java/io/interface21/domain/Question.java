@@ -16,6 +16,7 @@
 package io.interface21.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.math.BigDecimal;
 
 import lombok.Getter;
@@ -29,8 +30,9 @@ import org.ameba.jpa.BaseEntity;
  * @since 1.0
  */
 @Entity
+@Table(name = "T_QUESTION")
 @Getter
-public class Question extends BaseEntity {
+public class Question<T extends AnswerDefinition> extends BaseEntity {
 
     private String text;
     private BigDecimal weight;
