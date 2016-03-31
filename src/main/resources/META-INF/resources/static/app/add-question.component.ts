@@ -32,18 +32,19 @@ export class AddQuestionComponent implements OnInit {
         } else {
             this.exam.questions.push(this.question);
         }
-        this.question = null;
     }
     
     newQuestion() {
         this.addQuestion();
+        this.question = {};
         let link = ['AddQuestion', { exam: this.exam }];
         this._router.navigate(link);
     }
 
     addAnswer() {
         this.addQuestion();
-        let link = ['AddAnswer', { exam: this.exam }];
+        let link = ['AddAnswer', { question: this.question }];
+        this.question = {};
         this._router.navigate(link);
     }
 

@@ -12,8 +12,7 @@ export class AddAnswerComponent implements OnInit {
 
     title = "Add Answer";
 
-    @Input() exam: Exam;
-    question: Question = {};
+    @Input() question: Question;
 
     constructor(
         private _router: Router,
@@ -21,22 +20,7 @@ export class AddAnswerComponent implements OnInit {
     ){}
 
     ngOnInit() {
-        this.exam = this._routeParams.get('exam');
-    }
-
-    addQuestion() {
-        if (this.exam.questions === undefined) {
-            this.exam.questions = [this.question];
-        } else {
-            this.exam.questions.push(this.question);
-        }
-        this.question = {};
-        let link = ['AddQuestion', { exam: this.exam }];
-        this._router.navigate(link);
-    }
-
-    addAnswer() {
-
+        this.question = this._routeParams.get('question');
     }
 
     complete() {
