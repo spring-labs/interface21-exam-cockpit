@@ -7,8 +7,8 @@ import { HeroService } from './hero.service';
 
 @Component({
     selector: 'view-exams',
-    templateUrl: 'app/exams.component.html',
-    styleUrls: ['app/exams.component.css']
+    templateUrl: 'app/views/exams.component.html',
+    styleUrls: ['app/views/css/exams.component.css']
 })
 export class ExamsComponent implements OnInit {
 

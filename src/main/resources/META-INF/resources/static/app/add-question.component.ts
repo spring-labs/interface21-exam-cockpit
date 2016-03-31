@@ -6,14 +6,14 @@ import { Question } from './question';
 
 @Component({
     selector: 'add-question',
-    templateUrl: 'app/add-question.component.html'
+    templateUrl: 'app/views/add-question.component.html'
 })
 export class AddQuestionComponent implements OnInit {
 
     title = "Add Question";
 
     @Input() exam: Exam;
-    question: Question = {};
+    question: Question;
 
     constructor(
         private _router: Router,
@@ -30,7 +30,7 @@ export class AddQuestionComponent implements OnInit {
         } else {
             this.exam.questions.push(this.question);
         }
-        this.question = {};
+        this.question = null;
         let link = ['AddQuestion', { exam: this.exam }];
         this._router.navigate(link);
     }

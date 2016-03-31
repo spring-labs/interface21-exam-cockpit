@@ -6,7 +6,7 @@ import { Question } from './question';
 
 @Component({
     selector: 'add-answer',
-    templateUrl: 'app/add-answer.component.html'
+    templateUrl: 'app/views/add-answer.component.html'
 })
 export class AddAnswerComponent implements OnInit {
 

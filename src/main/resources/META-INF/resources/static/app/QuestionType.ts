@@ -1,6 +1,6 @@
-enum QuestionType {
-    MULTIPLE_CHOICE,
-    SINGLE_CHOICE,
+export enum QuestionType {
+    MULTIPLE,
+    SINGLE,
     TEXTUAL,
     PUZZLE
 }

@@ -15,7 +15,7 @@ import { AddAnswerComponent } from './add-answer.component';
         </nav>
         <router-outlet></router-outlet>
     `,
-    styleUrls: ['app/app.component.css'],
+    styleUrls: ['app/views/css/app.component.css'],
     directives: [ROUTER_DIRECTIVES],
     providers: [
         ROUTER_PROVIDERS,

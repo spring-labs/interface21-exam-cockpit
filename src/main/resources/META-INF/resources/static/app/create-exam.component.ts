@@ -4,7 +4,7 @@ import { Exam } from './exam'
 
 @Component({
     selector: 'create-exam',
-    templateUrl: 'app/create-exam.component.html'
+    templateUrl: 'app/views/create-exam.component.html'
 })
 export class CreateExamComponent {
 
