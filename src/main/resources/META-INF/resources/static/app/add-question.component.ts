@@ -3,6 +3,7 @@ import { RouteConfig, Router, RouteParams } from 'angular2/router';
 
 import { Exam } from './exam';
 import { Question } from './question';
+import { QuestionType } from './questionType';
 
 @Component({
     selector: 'add-question',
@@ -13,7 +14,8 @@ export class AddQuestionComponent implements OnInit {
     title = "Add Question";
 
     @Input() exam: Exam;
-    question: Question;
+    question: Question = {};
+    moreQuestionsAllowed: boolean = true;
 
     constructor(
         private _router: Router,
@@ -23,7 +25,7 @@ export class AddQuestionComponent implements OnInit {
     ngOnInit() {
         this.exam = this._routeParams.get('exam');
     }
-
+    
     addQuestion() {
         if (this.exam.questions === undefined) {
             this.exam.questions = [this.question];
@@ -31,11 +33,16 @@ export class AddQuestionComponent implements OnInit {
             this.exam.questions.push(this.question);
         }
         this.question = null;
+    }
+    
+    newQuestion() {
+        this.addQuestion();
         let link = ['AddQuestion', { exam: this.exam }];
         this._router.navigate(link);
     }
 
     addAnswer() {
+        this.addQuestion();
         let link = ['AddAnswer', { exam: this.exam }];
         this._router.navigate(link);
     }
