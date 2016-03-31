@@ -15,23 +15,20 @@
  */
 package io.interface21.domain;
 
-import javax.persistence.Entity;
-import java.math.BigDecimal;
-
-import lombok.Getter;
-import org.ameba.jpa.BaseEntity;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.OneToMany;
+import java.util.Set;
 
 /**
- * A Question.
+ * A PuzzleQuestion.
  *
  * @author <a href="mailto:scherrer@openwms.org">Heiko Scherrer</a>
  * @version 1.0
  * @since 1.0
  */
-@Entity
-@Getter
-public class Question extends BaseEntity {
+@DiscriminatorValue("PUZZLE")
+class PuzzleQuestion extends Question {
 
-    private String text;
-    private BigDecimal weight;
+    @OneToMany(mappedBy = "question")
+    private Set<AnswerDefinition> answers;
 }
