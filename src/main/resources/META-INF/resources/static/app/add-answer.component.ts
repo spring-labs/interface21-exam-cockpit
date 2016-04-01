@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from 'angular2/core';
 import { RouteConfig, Router, RouteParams } from 'angular2/router';
 
+import { Answer } from './answer';
 import { Exam } from './exam';
 import { Question } from './question';
 
@@ -13,6 +14,7 @@ export class AddAnswerComponent implements OnInit {
     title = "Add Answer";
 
     @Input() question: Question;
+    answer: Answer;
 
     constructor(
         private _router: Router,
@@ -21,6 +23,7 @@ export class AddAnswerComponent implements OnInit {
 
     ngOnInit() {
         this.question = this._routeParams.get('question');
+        this.answer = {};
     }
 
     complete() {
