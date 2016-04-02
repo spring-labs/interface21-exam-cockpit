@@ -5,26 +5,38 @@ import { Exam } from './exam';
 import { Question } from './question';
 import { QuestionType } from './questionType';
 
+import { ExamService } from './exam-service.ts';
+
 @Component({
     selector: 'add-question',
     templateUrl: 'app/views/add-question.component.html'
 })
 export class AddQuestionComponent implements OnInit {
 
-    title = "Add Question";
+    title = "Question";
 
     @Input() exam: Exam;
-    question: Question = {};
+    question: Question;
     moreQuestionsAllowed: boolean = true;
+    isNextHidden: boolean = true;
 
     constructor(
+        private _examService: ExamService,
         private _router: Router,
         private _routeParams: RouteParams
-    ){}
+    ){
+        this.question = {};
+    }
 
     ngOnInit() {
-        this.exam = this._routeParams.get('exam');
+        this.exam = this._examService.getCurrentExam();
     }
+    
+    routerOnActivate(nextInstruction, prevInstruction) {
+        if (this.question.answers !== undefined && this.question.answers.length > 0) {
+            this.isNextHidden = true;
+        }
+     }
     
     addQuestion() {
         if (this.exam.questions === undefined) {
@@ -44,7 +56,6 @@ export class AddQuestionComponent implements OnInit {
     addAnswer() {
         this.addQuestion();
         let link = ['AddAnswer', { question: this.question }];
-        this.question = {};
         this._router.navigate(link);
     }
 

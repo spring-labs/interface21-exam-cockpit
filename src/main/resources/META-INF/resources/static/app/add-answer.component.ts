@@ -11,7 +11,7 @@ import { Question } from './question';
 })
 export class AddAnswerComponent implements OnInit {
 
-    title = "Add Answer";
+    title = "Answer";
 
     @Input() question: Question;
     answer: Answer;
@@ -19,14 +19,23 @@ export class AddAnswerComponent implements OnInit {
     constructor(
         private _router: Router,
         private _routeParams: RouteParams
-    ){}
+    ) { }
 
     ngOnInit() {
         this.question = this._routeParams.get('question');
         this.answer = {};
     }
 
-    complete() {
+    add() {
+        if (this.question.answers === undefined) {
+            this.question.answers = [this.answer];
+        } else {
+            this.question.answers.push(this.answer);
+        }
+        window.history.back();
+    }
 
+    remove() {
+        window.history.back();
     }
 }
