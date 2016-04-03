@@ -9,6 +9,6 @@ export class ExamService {
     currentExam: Exam;
     
     getExams() {
-        return Promise.resolve(HEROES);
+        return Promise.resolve(EXAMS);
     }
 }

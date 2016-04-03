@@ -1,6 +1,5 @@
 import {Component} from 'angular2/core';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
-import { HeroService }     from './hero.service';
 import { ExamsComponent } from './exams.component';
 import { CreateExamComponent } from './create-exam.component';
 import { AddQuestionComponent } from './add-question.component';
@@ -21,7 +20,7 @@ import { ExamService } from './exam-service';
     directives: [ROUTER_DIRECTIVES],
     providers: [
         ROUTER_PROVIDERS,
-        HeroService
+        ExamService
     ]
 })
 @RouteConfig([
