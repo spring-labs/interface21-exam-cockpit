@@ -1,8 +1,8 @@
 import { Component, OnInit } from 'angular2/core';
 import { Router } from 'angular2/router';
 
-import { Hero } from './hero';
-import { HeroService } from './hero.service';
+import { Exam } from './exam';
+import { ExamService } from './exam-service';
 
 
 @Component({
@@ -12,19 +12,19 @@ import { HeroService } from './hero.service';
 })
 export class ExamsComponent implements OnInit {
 
-    heroes: Hero[] = [];
+    exams: Exam[] = [];
 
     constructor(
         private _router: Router,
-        private _heroService: HeroService
+        private _examService: ExamService
     ){}
 
     ngOnInit() {
-        this._heroService.getHeroes()
-            .then(heroes => this.heroes = heroes.slice(1, 5));
+        this._examService.getExams()
+            .then(e => this.exams = e.slice(1, 5));
     }
 
-    gotoDetail(hero: Hero) {
+    gotoDetail(hero: Exam) {
         let link = ['HeroDetail', { id: hero.id }];
         this._router.navigate(link);
     }

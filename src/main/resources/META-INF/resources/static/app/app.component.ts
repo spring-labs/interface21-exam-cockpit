@@ -6,6 +6,8 @@ import { CreateExamComponent } from './create-exam.component';
 import { AddQuestionComponent } from './add-question.component';
 import { AddAnswerComponent } from './add-answer.component';
 
+import { ExamService } from './exam-service';
+
 @Component({
     selector: 'my-app',
     template: `

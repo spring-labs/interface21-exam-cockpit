@@ -1,7 +1,7 @@
 import { Component } from 'angular2/core';
 import { Router } from 'angular2/router';
 import { Exam } from './exam'
-import { ExamService } from './exam-service.ts';
+import { ExamService } from './exam-service';
 
 @Component({
     selector: 'create-exam',
@@ -19,7 +19,7 @@ export class CreateExamComponent {
 
     addQuestion(exam: Exam) {
         this.exam.questions = [{}];
-        this._examService.setCurrentExam(this.exam);
+        this._examService.currentExam = this.exam;
         let link = ['AddQuestion'];
         this._router.navigate(link);
     }

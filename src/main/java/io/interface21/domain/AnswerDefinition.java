@@ -36,6 +36,7 @@ import org.ameba.jpa.BaseEntity;
 public class AnswerDefinition extends BaseEntity {
 
     private String text;
+    private int order;
     private BigDecimal weight;
     @OneToOne
     private Question question;

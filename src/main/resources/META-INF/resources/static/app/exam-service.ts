@@ -1,20 +1,14 @@
 import { Injectable } from 'angular2/core';
 import { Exam } from './exam.ts';
 
+import { EXAMS } from './mock-exams';
+
 @Injectable()
 export class ExamService {
 
-    _exam: Exam;
+    currentExam: Exam;
     
     getExams() {
-        return Promise.resolve("test");
-    }
-    
-    setCurrentExam(exam: Exam) {
-        this.exam = exam;
-    }
-
-    getCurrentExam() {
-        return this.exam;
+        return Promise.resolve(HEROES);
     }
 }

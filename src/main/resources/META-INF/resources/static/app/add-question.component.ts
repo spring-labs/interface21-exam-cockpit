@@ -5,7 +5,7 @@ import { Exam } from './exam';
 import { Question } from './question';
 import { QuestionType } from './questionType';
 
-import { ExamService } from './exam-service.ts';
+import { ExamService } from './exam-service';
 
 @Component({
     selector: 'add-question',
@@ -29,7 +29,7 @@ export class AddQuestionComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.exam = this._examService.getCurrentExam();
+        this.exam = this._examService.currentExam;
     }
     
     routerOnActivate(nextInstruction, prevInstruction) {
