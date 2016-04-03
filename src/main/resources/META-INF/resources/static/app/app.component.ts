@@ -1,6 +1,9 @@
 import {Component} from 'angular2/core';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
+
 import { ExamsComponent } from './exams.component';
+import { ExamDetailComponent } from './exam-detail.component';
+
 import { CreateExamComponent } from './create-exam.component';
 import { AddQuestionComponent } from './add-question.component';
 import { AddAnswerComponent } from './add-answer.component';

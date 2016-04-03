@@ -1,0 +1,28 @@
+import { Component, Input, OnInit } from 'angular2/core';
+import { RouteParams } from 'angular2/router';
+import { ExamService } from './exam-service';
+import { Exam } from './exam';
+
+@Component({
+    selector: 'i21-exam-detail',
+    templateUrl: 'app/views/exam-detail.component.html'
+})
+export class ExamDetailComponent implements OnInit {
+
+    @Input() exam: Hero;
+
+    constructor(
+        private _examService: ExamService,
+        private _routeParams: RouteParams) {
+    }
+
+    ngOnInit() {
+        let id = +this._routeParams.get('id');
+        this._examService.getExam(id)
+            .then(hero => this.hero = hero);
+    }
+
+    goBack() {
+        window.history.back();
+    }
+}

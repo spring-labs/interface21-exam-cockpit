@@ -25,7 +25,7 @@ export class ExamsComponent implements OnInit {
     }
 
     gotoDetail(exam: Exam) {
-        let link = ['HeroDetail', { id: exam.id }];
+        let link = ['ExamDetail', { id: exam.id }];
         this._router.navigate(link);
     }
 }
