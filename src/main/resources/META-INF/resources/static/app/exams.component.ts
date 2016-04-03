@@ -21,11 +21,11 @@ export class ExamsComponent implements OnInit {
 
     ngOnInit() {
         this._examService.getExams()
-            .then(e => this.exams = e.slice(1, 5));
+            .then(e => this.exams = e);
     }
 
-    gotoDetail(hero: Exam) {
-        let link = ['HeroDetail', { id: hero.id }];
+    gotoDetail(exam: Exam) {
+        let link = ['HeroDetail', { id: exam.id }];
         this._router.navigate(link);
     }
 }
