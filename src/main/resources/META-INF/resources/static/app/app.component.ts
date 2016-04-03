@@ -34,6 +34,11 @@ import { ExamService } from './exam-service';
         useAsDefault: true
     },
     {
+        path: '/exam-detail',
+        name: 'ExamDetail',
+        component: ExamDetailComponent
+    },
+    {
         path: '/create-exam',
         name: 'CreateExam',
         component: CreateExamComponent

@@ -1,0 +1,24 @@
+<div *ngIf="exam">
+    <h2>{{exam.examIdentifier}}</h2>
+    <div>
+        <label>Unique name: </label>
+        <input [(ngModel)]="exam.examIdentifier" />
+    </div>
+    <div>
+        <label>Title: </label>
+        <input [(ngModel)]="exam.title" />
+    </div>
+    <div>
+        <label>Max. score points: </label>
+        <input [(ngModel)]="exam.maxScorePoints" />
+    </div>
+    <div>
+        <label>Version: </label>
+        <input [(ngModel)]="exam.version" />
+    </div>
+    <div>
+        <label>Active: </label>
+        <input type="checkbox" [(ngModel)]="exam.active" />
+    </div>
+</div>
+<button (click)="goBack()">Back</button>

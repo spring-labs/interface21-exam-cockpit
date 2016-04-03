@@ -9,7 +9,7 @@ import { Exam } from './exam';
 })
 export class ExamDetailComponent implements OnInit {
 
-    @Input() exam: Hero;
+    @Input() exam: Exam;
 
     constructor(
         private _examService: ExamService,
@@ -19,7 +19,7 @@ export class ExamDetailComponent implements OnInit {
     ngOnInit() {
         let id = +this._routeParams.get('id');
         this._examService.getExam(id)
-            .then(hero => this.hero = hero);
+            .then(exam => this.exam = exam);
     }
 
     goBack() {

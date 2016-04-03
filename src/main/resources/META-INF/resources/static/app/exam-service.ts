@@ -14,7 +14,7 @@ export class ExamService {
 
     getExam(id: number) {
         return Promise.resolve(EXAMS).then(
-            exams => exams.filter(hero => hero.id === id)[0]
+            exams => exams.filter(exam => exam.id === id)[0]
         );
     }
 }
