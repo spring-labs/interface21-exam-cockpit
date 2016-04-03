@@ -1,24 +1,24 @@
 <div *ngIf="exam">
-    <h2>{{exam.examIdentifier}}</h2>
-    <div>
-        <label>Unique name: </label>
-        <input [(ngModel)]="exam.examIdentifier" />
+    <h2>Exam: {{title}}</h2>
+    <div class="row">
+        <label class="col-sm-1 control-label">Unique name: </label>
+        <input [(ngModel)]="exam.examIdentifier" class="col-sm-11"/>
     </div>
-    <div>
-        <label>Title: </label>
-        <input [(ngModel)]="exam.title" />
+    <div class="row">
+        <label class="col-sm-1 control-label">Title: </label>
+        <input [(ngModel)]="exam.title" class="col-sm-11"/>
     </div>
-    <div>
-        <label>Max. score points: </label>
-        <input [(ngModel)]="exam.maxScorePoints" />
+    <div class="row">
+        <label class="col-sm-1 control-label">Max. score points: </label>
+        <input [(ngModel)]="exam.maxScorePoints" class="col-sm-11"/>
     </div>
-    <div>
-        <label>Version: </label>
-        <input [(ngModel)]="exam.version" />
+    <div class="row">
+        <label class="col-sm-1 control-label">Version: </label>
+        <input [(ngModel)]="exam.version" class="col-sm-11"/>
     </div>
-    <div>
-        <label>Active: </label>
-        <input type="checkbox" [(ngModel)]="exam.active" />
+    <div class="row">
+        <label class="col-sm-1 control-label">Active: </label>
+        <input type="checkbox" [(ngModel)]="exam.active" class="col-sm-11"/>
     </div>
 </div>
 <button (click)="goBack()">Back</button>

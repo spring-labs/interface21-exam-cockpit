@@ -1,18 +1,13 @@
 h2 { 
   color: #444;
-  font-family: Arial, Helvetica, sans-serif;   
   font-weight: lighter;
 }
 body { 
   margin: 2em; 
 }
-body, input[text], button { 
-  color: #888; 
-  font-family: Cambria, Georgia; 
-}
 button {
-  font-family: Arial;
-  background-color: #eee;
+  background-color: #2196f3;
+  color: white;
   border: none;
   padding: 5px 10px;
   border-radius: 4px;
@@ -26,8 +21,4 @@ button:disabled {
   background-color: #eee;
   color: #aaa; 
   cursor: auto;
-}
-/* everywhere else */
-* { 
-  font-family: Arial, Helvetica, sans-serif; 
 }

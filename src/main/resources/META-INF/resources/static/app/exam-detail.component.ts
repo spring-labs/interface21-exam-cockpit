@@ -10,6 +10,7 @@ import { Exam } from './exam';
 export class ExamDetailComponent implements OnInit {
 
     @Input() exam: Exam;
+    title: string;
 
     constructor(
         private _examService: ExamService,
@@ -19,7 +20,10 @@ export class ExamDetailComponent implements OnInit {
     ngOnInit() {
         let id = +this._routeParams.get('id');
         this._examService.getExam(id)
-            .then(exam => this.exam = exam);
+            .then(exam => { 
+                this.exam = exam;
+                this.title = exam.examIdentifier;
+            });
     }
 
     goBack() {
