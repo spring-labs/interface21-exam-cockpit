@@ -1,17 +1,15 @@
 import { Component, Input, OnInit } from 'angular2/core';
 import { RouteParams } from 'angular2/router';
 import { ExamService } from './exam-service';
-import { Exam } from './exam';
-import { QuestionDetailComponent } from './question-detail.component';
+import { Question } from './question';
 
 @Component({
-    selector: 'i21-exam-detail',
-    templateUrl: 'app/views/exam-detail.component.html'
+    selector: 'i21-question-detail',
+    templateUrl: 'app/views/question-detail.component.html'
 })
-export class ExamDetailComponent implements OnInit {
+export class QuestionDetailComponent implements OnInit {
 
-    @Input() exam: Exam;
-    title: string;
+    @Input() question: Question;
 
     constructor(
         private _examService: ExamService,
@@ -19,12 +17,14 @@ export class ExamDetailComponent implements OnInit {
     }
 
     ngOnInit() {
+        /*
         let id = +this._routeParams.get('id');
         this._examService.getExam(id)
             .then(exam => { 
                 this.exam = exam;
                 this.title = exam.examIdentifier;
             });
+            */
     }
 
     goBack() {
