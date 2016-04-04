@@ -6,7 +6,8 @@ import { QuestionDetailComponent } from './question-detail.component';
 
 @Component({
     selector: 'i21-exam-detail',
-    templateUrl: 'app/views/exam-detail.component.html'
+    templateUrl: 'app/views/exam-detail.component.html',
+    directives: [QuestionDetailComponent]
 })
 export class ExamDetailComponent implements OnInit {
 

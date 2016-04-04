@@ -3,7 +3,12 @@ import { Exam } from './exam';
 export var EXAMS: Exam[] = [
     { "id":  1, "examIdentifier": "SS-01/2015", "title": "Systeme & Signale (Q1)", "maxScorePoints": 20, "active": false, "version": "1.0",
     "questions": [
-        {"id": "1"}    
+        {
+            "id": "1",
+            "text": "When has Napoleon died?",
+            "weight": 20,
+            "dtype": "MULTIPLE"
+        }    
     ]},
     { "id":  2, "examIdentifier": "SS-05/2015", "title": "Systeme & Signale (Q2)", "maxScorePoints": 20, "active": true, "version": "1.1" },
     { "id":  3, "examIdentifier": "DF-01/2016", "title": "Digitale Filter", "maxScorePoints": 18, "active": false, "version": "1.2" },

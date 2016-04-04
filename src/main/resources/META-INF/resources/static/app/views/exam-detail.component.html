@@ -20,9 +20,11 @@
         <label class="col-sm-1 control-label">Active:</label>
         <input type="checkbox" [(ngModel)]="exam.active" class="col-sm-11" />
     </div>
-    <div *ngFor="#question of exam.questions" class="row">
-        {{question.id}}
-        <i21-question-detail question="question"></i21-question-detail>
+    <div *ngIf="exam.questions">
+        <h2>Questions</h2>
+        <div *ngFor="#question of exam.questions" class="row">
+            <i21-question-detail [question]="question"></i21-question-detail>
+        </div>
     </div>
 </div>
 <button (click)="goBack()">Back</button>
