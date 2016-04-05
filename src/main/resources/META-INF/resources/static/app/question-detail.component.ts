@@ -17,12 +17,9 @@ export class QuestionDetailComponent implements OnInit {
     }
 
     ngOnInit() {
+        let questions: Questions[] = this._routeParams.get('questions');
         let id = +this._routeParams.get('id');
-        this._examService.getExam(id)
-            .then(e => {
-                this.exam = e;
-                this.title = e.examIdentifier;
-            });
+        this.question = questions.filter(q => q.id === id)[0];
     }
 
     goBack() {

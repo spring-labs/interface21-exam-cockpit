@@ -18,7 +18,7 @@ export class QuestionsTableComponent {
 
     click(question: Question) {
         console.log("clicked: "+question.id);
-        let link = ['QuestionDetail', { id: question.id }];
+        let link = ['QuestionDetail', { questions: this.questions, id: question.id }];
         this._router.navigate(link);
     }
 }
