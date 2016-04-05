@@ -6,8 +6,9 @@ export var EXAMS: Exam[] = [
         {
             "id": "1",
             "text": "When has Napoleon died?",
+            "order": 1,
             "weight": 20,
-            "dtype": "MULTIPLE"
+            "dtype": "SINGLE"
         }    
     ]},
     { "id":  2, "examIdentifier": "SS-05/2015", "title": "Systeme & Signale (Q2)", "maxScorePoints": 20, "active": true, "version": "1.1" },

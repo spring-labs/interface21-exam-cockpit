@@ -1,18 +1,8 @@
 <div>
     <div class="row">
-        <label class="col-sm-1 control-label">ID:</label>
-        <input (ngModel)="question.id" class="col-sm-11" />
-    </div>
-    <div class="row">
-        <label class="col-sm-1 control-label">Text:</label>
-        <input [(ngModel)]="question.text" class="col-sm-11" />
-    </div>
-    <div class="row">
-        <label class="col-sm-1 control-label">Weight:</label>
-        <input [(ngModel)]="question.weight" class="col-sm-11" />
-    </div>
-    <div class="row">
-        <label class="col-sm-1 control-label">Type:</label>
-        <input [(ngModel)]="question.dtype" class="col-sm-11" />
+        <span class="">{{question.order}}.</span>
+        <span class="">{{question.text}}</span>
+        <span class="">({{question.weight}})</span>
+        <img class="glyphcion-plus">
     </div>
 </div>

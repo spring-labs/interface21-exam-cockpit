@@ -22,17 +22,26 @@ export class ExamDetailComponent implements OnInit {
     ngOnInit() {
         let id = +this._routeParams.get('id');
         this._examService.getExam(id)
-            .then(exam => { 
-                this.exam = exam;
-                this.title = exam.examIdentifier;
+            .then(e => {
+                this.exam = e;
+                this.title = e.examIdentifier;
             });
     }
 
     goBack() {
-        window.history.back();
+        this._examService.getExam(this.exam.id)
+            .then(e => {
+                this.exam = e;
+                this.title = e.examIdentifier;
+                window.history.back();
+            });
     }
-    
+
     save() {
-        this._examService.save(this.exam);
+        this._examService.save(this.exam)
+            .then(e => {
+                this.exam = e;
+                this.goBack();
+            });
     }
 }

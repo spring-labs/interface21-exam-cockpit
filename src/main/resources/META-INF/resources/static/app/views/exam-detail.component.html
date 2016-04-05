@@ -22,7 +22,7 @@
     </div>
     <div *ngIf="exam.questions">
         <h2>Questions</h2>
-        <div *ngFor="#question of exam.questions" class="row">
+        <div *ngFor="#question of exam.questions" class="container-fluid">
             <i21-question-detail [question]="question"></i21-question-detail>
         </div>
     </div>

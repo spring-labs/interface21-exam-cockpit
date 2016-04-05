@@ -4,6 +4,7 @@ h2 {
 }
 body { 
   margin: 2em; 
+  font-size: 18px;
 }
 button {
   background-color: #2196f3;
