@@ -17,4 +17,10 @@ export class ExamService {
             exams => exams.filter(exam => exam.id === id)[0]
         );
     }
+    
+    save(exam: Exam) {
+        Promise.resolve(EXAMS).then(
+            exams => exams.filter(e => e.id === exam.id)[0] = exam
+        );
+    }
 }

@@ -31,4 +31,8 @@ export class ExamDetailComponent implements OnInit {
     goBack() {
         window.history.back();
     }
+    
+    save() {
+        this._examService.save(this.exam);
+    }
 }
