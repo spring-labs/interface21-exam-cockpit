@@ -1,4 +1,5 @@
 import { Component, Input } from 'angular2/core';
+import { Router } from 'angular2/router';
 import { Question } from './question';
 import { QuestionDetailComponent } from './question-detail.component';
 
@@ -10,4 +11,14 @@ import { QuestionDetailComponent } from './question-detail.component';
 export class QuestionsTableComponent {
 
     @Input() questions: Question[];
+    
+    constructor(
+        private _router: Router
+    ){}
+
+    click(question: Question) {
+        console.log("clicked: "+question.id);
+        let link = ['QuestionDetail', { id: question.id }];
+        this._router.navigate(link);
+    }
 }

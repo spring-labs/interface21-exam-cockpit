@@ -9,6 +9,7 @@ import { AddQuestionComponent } from './add-question.component';
 import { AddAnswerComponent } from './add-answer.component';
 
 import { ExamService } from './exam-service';
+import { QuestionDetailComponent } from './question-detail.component';
 
 @Component({
     selector: 'my-app',
@@ -52,6 +53,11 @@ import { ExamService } from './exam-service';
         path: '/add-answer',
         name: 'AddAnswer',
         component: AddAnswerComponent
+    },
+    {
+        path: '/i21-question-detail',
+        name: 'QuestionDetail',
+        component: QuestionDetailComponent
     }
 ])
 export class AppComponent {

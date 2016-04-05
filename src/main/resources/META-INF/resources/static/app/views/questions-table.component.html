@@ -7,8 +7,8 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="#question of questions" class="row">
-            <td class="">{{question.order}}.</td>
+        <tr class="row" *ngFor="#question of questions" (click)="click(question)">
+            <td>{{question.order}}.</td>
             <td class="">{{question.text}}</td>
             <td class="">{{question.weight}}</td>
         </tr>

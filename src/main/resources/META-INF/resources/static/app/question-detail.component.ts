@@ -17,14 +17,12 @@ export class QuestionDetailComponent implements OnInit {
     }
 
     ngOnInit() {
-        /*
         let id = +this._routeParams.get('id');
         this._examService.getExam(id)
-            .then(exam => { 
-                this.exam = exam;
-                this.title = exam.examIdentifier;
+            .then(e => {
+                this.exam = e;
+                this.title = e.examIdentifier;
             });
-            */
     }
 
     goBack() {
