@@ -5,11 +5,19 @@ export var EXAMS: Exam[] = [
     "questions": [
         {
             "id": "1",
-            "text": "When has Napoleon died?",
+            "text": "When did Napoleon die?",
             "order": 1,
             "weight": 20,
             "dtype": "SINGLE"
+        },
+        {
+            "id": "2",
+            "text": "When was Charlie Brown born?",
+            "order": 2,
+            "weight": 10,
+            "dtype": "SINGLE"
         }    
+    
     ]},
     { "id":  2, "examIdentifier": "SS-05/2015", "title": "Systeme & Signale (Q2)", "maxScorePoints": 20, "active": true, "version": "1.1" },
     { "id":  3, "examIdentifier": "DF-01/2016", "title": "Digitale Filter", "maxScorePoints": 18, "active": false, "version": "1.2" },

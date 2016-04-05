@@ -22,9 +22,7 @@
     </div>
     <div *ngIf="exam.questions">
         <h2>Questions</h2>
-        <div *ngFor="#question of exam.questions" class="container-fluid">
-            <i21-question-detail [question]="question"></i21-question-detail>
-        </div>
+        <i21-questions-table [questions]="exam.questions"></i21-questions-table>
     </div>
 </div>
 <button (click)="goBack()">Back</button>

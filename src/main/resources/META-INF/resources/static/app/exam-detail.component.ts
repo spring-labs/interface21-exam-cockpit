@@ -2,12 +2,12 @@ import { Component, Input, OnInit } from 'angular2/core';
 import { RouteParams } from 'angular2/router';
 import { ExamService } from './exam-service';
 import { Exam } from './exam';
-import { QuestionDetailComponent } from './question-detail.component';
+import { QuestionsTableComponent } from './questions-table.component';
 
 @Component({
     selector: 'i21-exam-detail',
     templateUrl: 'app/views/exam-detail.component.html',
-    directives: [QuestionDetailComponent]
+    directives: [QuestionsTableComponent]
 })
 export class ExamDetailComponent implements OnInit {
 

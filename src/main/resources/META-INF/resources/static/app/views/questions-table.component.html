@@ -1,0 +1,9 @@
+<table class="table table-striped">
+    <tbody>
+        <tr *ngFor="#question of questions" class="row">
+            <td class="">{{question.order}}.</td>
+            <td class="">{{question.text}}</td>
+            <td class="">({{question.weight}})</td>
+        </tr>
+    </tbody>
+</table>
