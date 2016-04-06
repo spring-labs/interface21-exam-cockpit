@@ -8,7 +8,37 @@ export var EXAMS: Exam[] = [
             "text": "When did Napoleon die?",
             "order": 1,
             "weight": 20,
-            "dtype": "SINGLE"
+            "dtype": "SINGLE",
+            "answers": [
+                {
+                    "id": "1",
+                    "order": "1",
+                    "text": "1782",
+                    "dtype": "CHECKABLE",
+                    "weight": "0"
+                },
+                {
+                    "id": "2",
+                    "order": "2",
+                    "text": "1759",
+                    "dtype": "CHECKABLE",
+                    "weight": "0"
+                },
+                {
+                    "id": "3",
+                    "order": "3",
+                    "text": "1821",
+                    "dtype": "CHECKABLE",
+                    "weight": "100"
+                },
+                {
+                    "id": "4",
+                    "order": "4",
+                    "text": "1898",
+                    "dtype": "CHECKABLE",
+                    "weight": "0"
+                },
+            ]
         },
         {
             "id": "2",

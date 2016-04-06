@@ -9,8 +9,11 @@ import { AddQuestionComponent } from './add-question.component';
 import { AddAnswerComponent } from './add-answer.component';
 
 import { ExamService } from './exam-service';
-import { QuestionDetailComponent } from './question-detail.component';
 import { QuestionService } from './question-service';
+
+import { QuestionDetailComponent } from './question-detail.component';
+import { AnswerDetailComponent } from './answer-detail.component';
+
 
 @Component({
     selector: 'my-app',
@@ -60,6 +63,11 @@ import { QuestionService } from './question-service';
         path: '/i21-question-detail',
         name: 'QuestionDetail',
         component: QuestionDetailComponent
+    },
+    {
+        path: '/i21-answer-detail',
+        name: 'AnswerDetail',
+        component: AnswerDetailComponent
     }
 ])
 export class AppComponent {
