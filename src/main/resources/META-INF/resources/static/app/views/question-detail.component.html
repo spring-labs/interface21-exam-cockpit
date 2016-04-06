@@ -15,10 +15,8 @@
         <label for="typeCmb" class="col-sm-2 control-label">Type</label>
         <div class="col-sm-10" *ngIf="showTypeCombo()">
             <select id="typeCmb" class="form-control" [(ngModel)]="question.dtype">
-                <option value="{{QuestionType.MULTIPLE}}">Multiple Choice</option>
-                <option value="{{QuestionType.SINGLE}}">Single Choice</option>
-                <option value="{{QuestionType.TEXTUAL}}">Freetext</option>
-                <option value="{{QuestionType.PUZZLE}}">Puzzle</option>
+                <option value="MULTIPLE">Multiple Choice</option>
+                <option value="SINGLE">Single Choice</option>
             </select>
         </div>
         <div class="col-sm-10" *ngIf="!showTypeCombo()">

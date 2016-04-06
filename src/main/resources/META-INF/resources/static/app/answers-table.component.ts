@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from 'angular2/core';
 import { Router } from 'angular2/router';
 import { Answer } from './answer';
 import { AnswerDetailComponent } from './answer-detail.component';
+import { AnswerService } from './answer-service';
 
 @Component({
     selector: 'i21-answers-table',
@@ -13,13 +14,13 @@ export class AnswersTableComponent implements OnInit {
     @Input() answers: Answer[];
 
     constructor(
-        private _router: Router//,
-        //private _questionService: QuestionService
+        private _router: Router,
+        private _answerService: AnswerService
     ) { }
 
     // populate model
     ngOnInit() {
-        //this._questionService.questions = this.answers;
+        this._answerService.answers = this.answers;
     }
 
     click(answer: Answer) {

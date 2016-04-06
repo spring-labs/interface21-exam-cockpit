@@ -10,6 +10,7 @@ import { AddAnswerComponent } from './add-answer.component';
 
 import { ExamService } from './exam-service';
 import { QuestionService } from './question-service';
+import { AnswerService } from './answer-service';
 
 import { QuestionDetailComponent } from './question-detail.component';
 import { AnswerDetailComponent } from './answer-detail.component';
@@ -29,7 +30,8 @@ import { AnswerDetailComponent } from './answer-detail.component';
     providers: [
         ROUTER_PROVIDERS,
         ExamService,
-        QuestionService
+        QuestionService,
+        AnswerService
     ]
 })
 @RouteConfig([

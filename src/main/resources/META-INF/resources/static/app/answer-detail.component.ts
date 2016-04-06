@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from 'angular2/core';
 import { RouteParams } from 'angular2/router';
 import { ExamService } from './exam-service';
 import { Answer } from './answer';
-import { QuestionService } from './question-service';
+import { AnswerService } from './answer-service';
 
 @Component({
     selector: 'i21-answer-detail',
@@ -11,17 +11,16 @@ import { QuestionService } from './question-service';
 export class AnswerDetailComponent implements OnInit {
 
     answer: Answer;
-    @Input() answers: Answer[];
-    @Input() id: string;
+    id: string;
 
     constructor(
         private _routeParams: RouteParams,
-        private _questionService: QuestionService) {
+        private _answerService: AnswerService) {
     }
 
     ngOnInit() {
         let id = +this._routeParams.get('id');
-        //this.question = this._questionService.questions.filter(q => q.id == id)[0];
+        this.answer = this._answerService.answers.filter(a => a.id == id)[0];
     }
 
     goBack() {

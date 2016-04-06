@@ -8,7 +8,7 @@ export var EXAMS: Exam[] = [
             "text": "When did Napoleon die?",
             "order": 1,
             "weight": 20,
-            "dtype": "MULTIPLE",
+            "dtype": "SINGLE",
             "answers": [
                 {
                     "id": "1",

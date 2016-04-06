@@ -6,6 +6,6 @@ export interface Question {
     text: string;
     order: number;
     weight: number;
-    dtype: QuestionType;
+    dtype: string;
     answers: Array<Answer>;
 }
