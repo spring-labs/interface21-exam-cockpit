@@ -15,7 +15,7 @@ export class CreateExamComponent {
     constructor(
         private _examService: ExamService,
         private _router: Router
-    ){}
+    ) { }
 
     addQuestion(exam: Exam) {
         this.exam.questions = [{}];
