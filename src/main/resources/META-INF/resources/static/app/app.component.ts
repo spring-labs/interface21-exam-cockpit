@@ -10,6 +10,7 @@ import { AddAnswerComponent } from './add-answer.component';
 
 import { ExamService } from './exam-service';
 import { QuestionDetailComponent } from './question-detail.component';
+import { QuestionService } from './question-service';
 
 @Component({
     selector: 'my-app',
@@ -24,7 +25,8 @@ import { QuestionDetailComponent } from './question-detail.component';
     directives: [ROUTER_DIRECTIVES],
     providers: [
         ROUTER_PROVIDERS,
-        ExamService
+        ExamService,
+        QuestionService
     ]
 })
 @RouteConfig([
