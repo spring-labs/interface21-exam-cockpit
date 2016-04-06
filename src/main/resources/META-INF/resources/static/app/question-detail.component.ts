@@ -28,7 +28,7 @@ export class QuestionDetailComponent implements OnInit {
     }
     
     showTypeCombo() : boolean {
-        return this.question.dtype == QuestionType.MULTIPLE || this.question.dtype == QuestionType.SINGLE;
+        return this.question.dtype === QuestionType.MULTIPLE || this.question.dtype === QuestionType.SINGLE;
     }
 
     goBack() {
