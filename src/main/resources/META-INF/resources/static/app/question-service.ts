@@ -5,5 +5,5 @@ import { Question } from './question.ts';
 export class QuestionService {
 
     currentQuestion: Question;
-    questions: Question[];    
+    questions: Question[];   
 }

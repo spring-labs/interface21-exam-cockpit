@@ -1,7 +1,31 @@
-<tbody>
-    <tr class="row">
-        <td class="">{{question.order}}.</td>
-        <td class="">{{question.text}}</td>
-        <td class="">({{question.weight}})</td>
-    </tr>
-</tbody>
+<form class="form-horizontal">
+    <div class="form-group">
+        <label for="textTxt" class="col-sm-2 control-label">Text</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="textTxt" [(ngModel)]="question.text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="weightTxt" class="col-sm-2 control-label">Weight</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="weightTxt" [(ngModel)]="question.weight">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="typeCmb" class="col-sm-2 control-label">Type</label>
+        <div class="col-sm-10">
+            <select id="typeCmb" class="form-control" [(ngModel)]="question.dtype">
+                <option selected value="MULTIPLE">Multiple Choice</option>
+                <option value="SINGLE">Single Choice</option>
+                <option value="FREETEXT">Freetext</option>
+                <option value="PUZZLE">Puzzle</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="button" class="btn btn-default" (click)="goBack()">Back</button>
+        </div>
+    </div>
+</form>
