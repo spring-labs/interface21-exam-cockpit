@@ -21,15 +21,15 @@ import javax.persistence.Table;
 import lombok.Getter;
 
 /**
- * A Examiner.
+ * A Lecturer.
  *
  * @author <a href="mailto:scherrer@openwms.org">Heiko Scherrer</a>
  * @version 1.0
  * @since 1.0
  */
 @Entity
-@Table(name = "T_EXAMINER")
+@Table(name = "T_LECTURER")
 @Getter
-public class Examiner extends Person {
+public class Lecturer extends Person {
 
 }

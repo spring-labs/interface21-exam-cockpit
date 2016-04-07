@@ -3,6 +3,10 @@
 ## Functional Description
 An user interface with corresponding backend services to manage exams and their contents. A lecturer is able to ...
 
+The domain model looks like follows
+
+![Domain model][dModel]
+
 ### Create exams
 An exam (`Exam`, or better spoken exam definition) combines a collection of questions that need to be answered by exam candidates. A maximum number of score points can be achieved by
 executing the exam (`Execution`).
@@ -45,3 +49,5 @@ $ java -jar target/cockpit.jarorrected url
 ```
 
 Open your favorite webbrowser and go to [http://localhost:8080/index.html](http://localhost:8080/index.html). The default user has the following credentials: `username: admin` and `password: test`. The available operations can be found by sending a `GET` request to [/api](http://localhost:8080/api).
+
+[dModel]: ./src/site/img/domain_model.png
