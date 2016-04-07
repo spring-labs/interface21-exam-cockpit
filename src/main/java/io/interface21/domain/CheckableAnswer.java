@@ -17,6 +17,7 @@ package io.interface21.domain;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
 /**
  * A Answer.
@@ -28,4 +29,7 @@ import javax.persistence.Entity;
 @Entity
 @DiscriminatorValue("CHECKABLE")
 public class CheckableAnswer extends AnswerDefinition {
+
+    @OneToOne
+    private Question question;
 }

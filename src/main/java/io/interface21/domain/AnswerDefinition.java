@@ -16,7 +16,6 @@
 package io.interface21.domain;
 
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.math.BigDecimal;
 
@@ -38,6 +37,4 @@ public class AnswerDefinition extends BaseEntity {
     private String text;
     private int order;
     private BigDecimal weight;
-    @OneToOne
-    private Question question;
 }
