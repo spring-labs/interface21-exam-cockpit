@@ -30,4 +30,4 @@ $ mvn package
 $ java -jar target/cockpit.jar
 ```
 
-Open your favorite webbrowser and go to [http://localhost:8080](http://localhost:8080)
+Open your favorite webbrowser and go to [http://localhost:8080](http://localhost:8080). The default user has the following credentials: `username: admin` and `password: test`. The available operations can be found by sending a `GET` request to [/api](http://localhost:8080/api).
