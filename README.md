@@ -21,11 +21,13 @@ can modify exams, apply version information to them and activate or deactivate a
 
 ### Clone, Build and Run
 
+First ensure that you have JDK in verion 1.8+ installed, in order to compile and run the application.
+
 ```
 $ git clone git@github.com:openwms/interface21-exam-cockpit.git exam-cockpit
 $ cd exam-cockpit
 $ mvn package
-$ java -jar target/exam-cockpit.jar
+$ java -jar target/cockpit.jar
 ```
 
 Open your favorite webbrowser and go to [http://localhost:8080](http://localhost:8080)
