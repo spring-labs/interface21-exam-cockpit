@@ -155,6 +155,7 @@
     </dependencyManagement>
 
     <build>
+        <finalName>cockpit</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
