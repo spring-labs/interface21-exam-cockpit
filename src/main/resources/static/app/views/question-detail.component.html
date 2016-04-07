@@ -1,0 +1,39 @@
+<form class="form-horizontal">
+    <div class="form-group">
+        <label for="textTxt" class="col-sm-2 control-label">Text</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="textTxt" [(ngModel)]="question.text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="weightTxt" class="col-sm-2 control-label">Weight</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="weightTxt" [(ngModel)]="question.weight">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="typeCmb" class="col-sm-2 control-label">Type</label>
+        <div class="col-sm-10" *ngIf="showTypeCombo()">
+            <select id="typeCmb" class="form-control" [(ngModel)]="question.dtype">
+                <option value="MULTIPLE">Multiple Choice</option>
+                <option value="SINGLE">Single Choice</option>
+            </select>
+        </div>
+        <div class="col-sm-10" *ngIf="!showTypeCombo()">
+            <div class="col-sm-10">
+                <span>{{question.dtype}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group" *ngIf="question.answers">
+        <label class="col-sm-2 control-label">Answers</label>
+        <div class="col-sm-10">
+            <i21-answers-table [answers]="question.answers"></i21-answers-table>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="button" class="btn btn-default" (click)="goBack()">Back</button>
+        </div>
+    </div>
+</form>

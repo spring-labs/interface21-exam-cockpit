@@ -1,0 +1,9 @@
+<h3>View Exams</h3>
+<div class="grid grid-pad">
+  <div *ngFor="#exam of exams" (click)="gotoDetail(exam)" class="col-1-4">
+    <div class="module hero" [class.inactive-exam]="!exam.active" [class.active-exam]="exam.active">
+      <h4>{{exam.title}}</h4>
+      <h5>Version {{exam.version}}</h5>
+    </div>
+  </div>
+</div>

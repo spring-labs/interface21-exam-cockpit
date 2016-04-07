@@ -1,0 +1,64 @@
+<div class="col-sm-12">
+    <h2>{{title}}</h2>
+</div>
+<div class="form-group">
+    <label for="weightTxt" class="col-sm-2 control-label">Type</label>
+
+    <div class="col-sm-10">
+        <select id="typeCmb" class="form-control" [(ngModel)]="question.dtype">
+            <option selected value="MULTIPLE">Multiple Choice</option>
+            <option value="SINGLE">Single Choice</option>
+            <option value="FREETEXT">Freetext</option>
+            <option value="PUZZLE">Puzzle</option>
+        </select>
+    </div>
+</div>
+<div class="form-group">
+    <label for="textTxt" class="col-sm-2 control-label">Text</label>
+
+    <div class="col-sm-10">
+        <textarea rows="4" class="form-control" id="textTxt" [(ngModel)]="question.text"></textarea>
+    </div>
+</div>
+<div class="form-group">
+    <label for="weightTxt" class="col-sm-2 control-label">Weight</label>
+
+    <div class="col-sm-10">
+        <input type="text" class="form-control" id="weightTxt" [(ngModel)]="question.weight">
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row" *ngFor="#answer of question.answers">
+        <div class="col-sm-3">
+            {{answer.order}}
+        </div>
+        <div class="col-sm-3">
+            {{answer.dtype}}
+        </div>
+        <div class="col-sm-3">
+            {{answer.text}}
+        </div>
+        <div class="col-sm-3">
+            {{answer.weight}}
+        </div>
+    </div>
+</div>
+
+<router-outlet></router-outlet>
+
+<div class="form-group" *ngIf="moreQuestionsAllowed">
+    <div class="col-sm-offset-2 col-sm-10">
+        <button type="button" class="btn btn-default" (click)="addAnswer()">Add Answer</button>
+    </div>
+</div>
+<div class="form-group" [hidden]="isNextHidden">
+    <div class="col-sm-offset-2 col-sm-10">
+        <button type="button" class="btn btn-default" (click)="newQuestion()">Add Question</button>
+    </div>
+</div>
+<div class="form-group" [hidden]="isNextHidden">
+    <div class="col-sm-offset-2 col-sm-10">
+        <button type="button" class="btn btn-default" (click)="complete()">Complete and Save</button>
+    </div>
+</div>

@@ -44,6 +44,8 @@ public class Exam extends BaseEntity {
     private String title;
     /** Maximum points that can be achieved. */
     private int maxScorePoints;
+    /** */
+    private long duration;
     /** A version number of the exam. */
     private String version;
     /** Only one Exam version can be active, older versions are set to inactive. */

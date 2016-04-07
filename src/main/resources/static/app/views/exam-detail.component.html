@@ -1,0 +1,29 @@
+<div *ngIf="exam">
+    <h2>Exam: {{title}}</h2>
+    <div class="row">
+        <label class="col-sm-1 control-label">Unique name:</label>
+        <input [(ngModel)]="exam.examIdentifier" class="col-sm-11" />
+    </div>
+    <div class="row">
+        <label class="col-sm-1 control-label">Title:</label>
+        <input [(ngModel)]="exam.title" class="col-sm-11" />
+    </div>
+    <div class="row">
+        <label class="col-sm-1 control-label">Max. score points:</label>
+        <input [(ngModel)]="exam.maxScorePoints" class="col-sm-11" />
+    </div>
+    <div class="row">
+        <label class="col-sm-1 control-label">Version:</label>
+        <input [(ngModel)]="exam.version" class="col-sm-11" />
+    </div>
+    <div class="row">
+        <label class="col-sm-1 control-label">Active:</label>
+        <input type="checkbox" [(ngModel)]="exam.active" class="col-sm-11" />
+    </div>
+    <div *ngIf="exam.questions">
+        <h2>Questions</h2>
+        <i21-questions-table [questions]="exam.questions"></i21-questions-table>
+    </div>
+</div>
+<button (click)="goBack()">Back</button>
+<button (click)="save()">Save</button>
