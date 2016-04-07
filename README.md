@@ -22,7 +22,7 @@ can modify exams, apply version information to them and activate or deactivate a
 ### Clone, Build and Run
 
 ```
-$ git clone exam-cockpit
+$ git clone git@github.com:openwms/interface21-exam-cockpit.git exam-cockpit
 $ cd exam-cockpit
 $ mvn package
 $ java -jar target/exam-cockpit.jar
