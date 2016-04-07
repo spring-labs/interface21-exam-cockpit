@@ -28,4 +28,4 @@ $ mvn package
 $ java -jar target/exam-cockpit.jar
 ```
 
-Open your favorite webbrowser and go to [http://localhost:8080]
+Open your favorite webbrowser and go to [http://localhost:8080](http://localhost:8080)
