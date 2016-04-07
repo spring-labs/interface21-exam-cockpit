@@ -1,6 +1,7 @@
 {
-  "name": "angular2-quickstart",
+  "name": "i21-exam-cockpit",
   "version": "1.0.0",
+  "description": "An user interface with corresponding backend services to manage exams and their contents",
   "scripts": {
     "start": "concurrently \"npm run tsc:w\" \"npm run lite\" ",
     "tsc": "tsc",

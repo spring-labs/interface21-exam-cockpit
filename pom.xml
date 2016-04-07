@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <name>exam-cockpit</name>
-    <description>Demo project for Spring Boot</description>
+    <description>An user interface with corresponding backend services to manage exams and their contents</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
