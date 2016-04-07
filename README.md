@@ -17,11 +17,25 @@ type of question (`QuestionType`).
 Exams may change over the time and only the newest version of the exam definition should be kept active and released for execution. A lecturer
 can modify exams, apply version information to them and activate or deactivate an exam.
 
-## Development Process
-
-### Clone, Build and Run
+## Deployment process
 
 First ensure that you have JDK in verion 1.8+ installed, in order to compile and run the application.
+
+### Clone and Develop
+
+```
+$ git clone git@github.com:openwms/interface21-exam-cockpit.git exam-cockpit
+$ cd exam-cockpit/src/main/resources/static
+$ npm start
+```
+
+Your favorite webbrowser is started and you're pointed t [http://localhost:3000/index.html](http://localhost:3000/index.html) to verify
+code changes. When you switch back to your editor (we prefer vscode) and make changes, these changes become visible as soon as you
+go back to the webbrowser.
+
+## Development process
+
+### Clone, Build and Run
 
 ```
 $ git clone git@github.com:openwms/interface21-exam-cockpit.git exam-cockpit
