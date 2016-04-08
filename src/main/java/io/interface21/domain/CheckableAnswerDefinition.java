@@ -19,14 +19,14 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 /**
- * A TextualAnswer.
+ * A CheckableAnswerDefinition.
  *
  * @author <a href="mailto:scherrer@openwms.org">Heiko Scherrer</a>
  * @version 1.0
  * @since 1.0
  */
 @Entity
-@DiscriminatorValue("TEXTUAL")
-public class TextualAnswer extends AnswerDefinition {
+@DiscriminatorValue("CHECKABLE")
+public class CheckableAnswerDefinition extends AnswerDefinition {
 
 }

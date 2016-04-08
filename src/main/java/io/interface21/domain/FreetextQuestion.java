@@ -19,6 +19,8 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
+import lombok.Getter;
+
 /**
  * A FreetextQuestion.
  *
@@ -28,8 +30,13 @@ import javax.persistence.OneToOne;
  */
 @Entity
 @DiscriminatorValue("TEXTUAL")
-class FreetextQuestion extends Question<TextualAnswer> {
+@Getter
+class FreetextQuestion extends Question<TextualAnswerDefinition> {
 
+    /** The answer given by the candidate. */
     @OneToOne
-    private TextualAnswer answer;
+    private TextualAnswerDefinition answer;
+    /** The expected answer given by the examiner. */
+    @OneToOne
+    private TextualAnswerDefinition expectedAnswer;
 }

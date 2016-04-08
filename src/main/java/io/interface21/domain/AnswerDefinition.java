@@ -16,6 +16,7 @@
 package io.interface21.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.math.BigDecimal;
 
@@ -23,7 +24,7 @@ import lombok.Getter;
 import org.ameba.jpa.BaseEntity;
 
 /**
- * A Answer.
+ * An AnswerDefinition is the base class of all possible answers that have common fields.
  *
  * @author <a href="mailto:scherrer@openwms.org">Heiko Scherrer</a>
  * @version 1.0
@@ -34,7 +35,13 @@ import org.ameba.jpa.BaseEntity;
 @Getter
 public class AnswerDefinition extends BaseEntity {
 
+    /** The provided answer text. */
     private String text;
+    /** An order field is used to sort multiple answers of a question. */
     private int order;
+    /** A weight of correctness. */
     private BigDecimal weight;
+    /** A reference to the question. */
+    @OneToOne
+    private Question question;
 }

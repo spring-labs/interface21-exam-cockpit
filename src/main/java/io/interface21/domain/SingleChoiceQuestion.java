@@ -29,8 +29,8 @@ import java.util.Set;
  */
 @Entity
 @DiscriminatorValue("SINGLE")
-class SingleChoiceQuestion extends Question<CheckableAnswer> {
+class SingleChoiceQuestion extends Question<CheckableAnswerDefinition> {
 
     @OneToMany(mappedBy = "question")
-    private Set<CheckableAnswer> answers;
+    private Set<CheckableAnswerDefinition> answers;
 }

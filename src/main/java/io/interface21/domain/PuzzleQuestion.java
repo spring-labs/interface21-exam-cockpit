@@ -30,8 +30,8 @@ import java.util.Set;
  */
 @Entity
 @DiscriminatorValue("PUZZLE")
-class PuzzleQuestion extends Question<CheckableAnswer> {
+class PuzzleQuestion extends Question<CheckableAnswerDefinition> {
 
     @OneToMany(mappedBy = "question")
-    private Set<CheckableAnswer> answers = new LinkedHashSet<>();
+    private Set<CheckableAnswerDefinition> answers = new LinkedHashSet<>();
 }

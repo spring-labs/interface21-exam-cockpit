@@ -17,19 +17,16 @@ package io.interface21.domain;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
 
 /**
- * A Answer.
+ * A TextualAnswerDefinition.
  *
  * @author <a href="mailto:scherrer@openwms.org">Heiko Scherrer</a>
  * @version 1.0
  * @since 1.0
  */
 @Entity
-@DiscriminatorValue("CHECKABLE")
-public class CheckableAnswer extends AnswerDefinition {
+@DiscriminatorValue("TEXTUAL")
+public class TextualAnswerDefinition extends AnswerDefinition {
 
-    @OneToOne
-    private Question question;
 }

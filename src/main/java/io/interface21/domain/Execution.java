@@ -25,7 +25,7 @@ import java.util.Set;
 import lombok.Getter;
 
 /**
- * A Execution.
+ * An Execution reflects the actual exam execution.
  *
  * @author <a href="mailto:scherrer@openwms.org">Heiko Scherrer</a>
  * @version 1.0
@@ -35,12 +35,18 @@ import lombok.Getter;
 @Getter
 public class Execution extends Exam {
 
+    /** The candidate who is taking the exam. */
     @ManyToOne
     private Candidate candidate;
+    /** When the execution has been taken. */
     private LocalDateTime dateTaken;
+    /** When the execution has been started*/
     private LocalDateTime dateStarted;
+    /** Number of achieved score points. */
     private BigDecimal achievedPoints;
+    /** Did the candidate pass the exam ?*/
     private boolean passed = false;
+    /** The candidates chosen or given answers. */
     @OneToMany
     private Set<AnswerDefinition> answers;
 }

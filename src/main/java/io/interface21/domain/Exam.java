@@ -37,20 +37,21 @@ import org.ameba.jpa.BaseEntity;
 @Getter
 public class Exam extends BaseEntity {
 
-    /** A unique business key for the Exam. */
+    /** A unique business key for the exam. */
     @Column(name = "C_BK")
     private String examIdentifier;
-    /** A title for the Exam. */
+    /** A title for the exam. */
     private String title;
     /** Maximum points that can be achieved. */
     private int maxScorePoints;
-    /** */
+    /** The maximum duration how long the candidate has to take the exam. */
     private long duration;
     /** A version number of the exam. */
     private String version;
-    /** Only one Exam version can be active, older versions are set to inactive. */
+    /** Only one exam version can be active, older versions are set to inactive. */
     @Column(name = "C_ACTIVE")
     private boolean active;
+    /** An exam has a couple of questions. */
     @OneToMany
     private Set<Question> questions;
 
