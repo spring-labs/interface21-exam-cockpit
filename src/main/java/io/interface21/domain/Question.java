@@ -23,7 +23,7 @@ import lombok.Getter;
 import org.ameba.jpa.BaseEntity;
 
 /**
- * A Question.
+ * A Question to be answered.
  *
  * @author <a href="mailto:scherrer@openwms.org">Heiko Scherrer</a>
  * @version 1.0
@@ -32,9 +32,12 @@ import org.ameba.jpa.BaseEntity;
 @Entity
 @Table(name = "T_QUESTION")
 @Getter
-public class Question<T extends AnswerDefinition> extends BaseEntity {
+class Question<T extends AnswerDefinition> extends BaseEntity {
 
+    /** Question text. */
     private String text;
+    /** An order field is used to sort multiple questions of an exam. */
     private int order;
+    /** A weight of correctness. */
     private BigDecimal weight;
 }

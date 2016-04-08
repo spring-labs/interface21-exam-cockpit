@@ -33,7 +33,7 @@ import lombok.Getter;
  */
 @Entity
 @Getter
-public class Execution extends Exam {
+class Execution extends Exam {
 
     /** The candidate who is taking the exam. */
     @ManyToOne

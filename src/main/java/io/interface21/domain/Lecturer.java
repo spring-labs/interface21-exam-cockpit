@@ -21,7 +21,7 @@ import javax.persistence.Table;
 import lombok.Getter;
 
 /**
- * A Lecturer.
+ * A Lecturer is the person who sets up the exam and examines exam executions.
  *
  * @author <a href="mailto:scherrer@openwms.org">Heiko Scherrer</a>
  * @version 1.0
@@ -30,6 +30,6 @@ import lombok.Getter;
 @Entity
 @Table(name = "T_LECTURER")
 @Getter
-public class Lecturer extends Person {
+class Lecturer extends Person {
 
 }

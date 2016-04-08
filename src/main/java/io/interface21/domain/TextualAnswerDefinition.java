@@ -18,8 +18,10 @@ package io.interface21.domain;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
+import lombok.Getter;
+
 /**
- * A TextualAnswerDefinition.
+ * A TextualAnswerDefinition can be provided in text form.
  *
  * @author <a href="mailto:scherrer@openwms.org">Heiko Scherrer</a>
  * @version 1.0
@@ -27,6 +29,7 @@ import javax.persistence.Entity;
  */
 @Entity
 @DiscriminatorValue("TEXTUAL")
+@Getter
 public class TextualAnswerDefinition extends AnswerDefinition {
 
 }

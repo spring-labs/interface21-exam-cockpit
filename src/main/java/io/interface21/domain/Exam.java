@@ -35,7 +35,7 @@ import org.ameba.jpa.BaseEntity;
 @Entity
 @Table(name = "T_EXAM", uniqueConstraints = {@UniqueConstraint(name = "UC_BK_ACTIVE", columnNames = {"C_BK", "C_ACTIVE"})})
 @Getter
-public class Exam extends BaseEntity {
+class Exam extends BaseEntity {
 
     /** A unique business key for the exam. */
     @Column(name = "C_BK")

@@ -18,8 +18,11 @@ package io.interface21.domain;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Min;
 import java.util.LinkedHashSet;
 import java.util.Set;
+
+import lombok.Getter;
 
 /**
  * A PuzzleQuestion.
@@ -30,8 +33,11 @@ import java.util.Set;
  */
 @Entity
 @DiscriminatorValue("PUZZLE")
+@Getter
 class PuzzleQuestion extends Question<CheckableAnswerDefinition> {
 
+    /** Has multiple answers. */
     @OneToMany(mappedBy = "question")
+    @Min(2)
     private Set<CheckableAnswerDefinition> answers = new LinkedHashSet<>();
 }

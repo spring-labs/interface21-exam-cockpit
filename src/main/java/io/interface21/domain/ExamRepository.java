@@ -13,20 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.interface21;
+package io.interface21.domain;
 
-import io.interface21.domain.Question;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 /**
- * A QuestionRepository.
+ * A ExamRepository.
  *
  * @author <a href="mailto:scherrer@openwms.org">Heiko Scherrer</a>
  * @version 1.0
  * @since 1.0
  */
-@RepositoryRestResource
-interface QuestionRepository extends PagingAndSortingRepository<Question, Long> {
+@RepositoryRestResource(collectionResourceRel = "exams", path = "exams")
+public interface ExamRepository extends PagingAndSortingRepository<Exam, Long> {
 
 }

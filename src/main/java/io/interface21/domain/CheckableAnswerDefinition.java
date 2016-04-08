@@ -18,8 +18,10 @@ package io.interface21.domain;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
+import lombok.Getter;
+
 /**
- * A CheckableAnswerDefinition.
+ * A CheckableAnswerDefinition is a kind of {@code AnswerDefinition} that can be checked or not checked.
  *
  * @author <a href="mailto:scherrer@openwms.org">Heiko Scherrer</a>
  * @version 1.0
@@ -27,6 +29,7 @@ import javax.persistence.Entity;
  */
 @Entity
 @DiscriminatorValue("CHECKABLE")
-public class CheckableAnswerDefinition extends AnswerDefinition {
+@Getter
+class CheckableAnswerDefinition extends AnswerDefinition {
 
 }

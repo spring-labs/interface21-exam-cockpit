@@ -18,10 +18,13 @@ package io.interface21.domain;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Min;
 import java.util.Set;
 
+import lombok.Getter;
+
 /**
- * A MultipleChoiceQuestion.
+ * A MultipleChoiceQuestion is a question that allows to select more than one answers.
  *
  * @author <a href="mailto:scherrer@openwms.org">Heiko Scherrer</a>
  * @version 1.0
@@ -29,8 +32,11 @@ import java.util.Set;
  */
 @Entity
 @DiscriminatorValue("MULTIPLE")
+@Getter
 class MultipleChoiceQuestion extends Question<CheckableAnswerDefinition> {
 
+    /** Possible answers this question has. */
     @OneToMany(mappedBy = "question")
+    @Min(2)
     private Set<CheckableAnswerDefinition> answers;
 }

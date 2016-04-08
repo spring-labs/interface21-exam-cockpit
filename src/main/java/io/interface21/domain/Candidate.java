@@ -21,7 +21,7 @@ import javax.persistence.Table;
 import lombok.Getter;
 
 /**
- * A Candidate.
+ * A Candidate is the person that takes an exam.
  *
  * @author <a href="mailto:scherrer@openwms.org">Heiko Scherrer</a>
  * @version 1.0
@@ -30,6 +30,6 @@ import lombok.Getter;
 @Entity
 @Table(name = "T_CANDIDATE")
 @Getter
-public class Candidate extends Person {
+class Candidate extends Person {
 
 }

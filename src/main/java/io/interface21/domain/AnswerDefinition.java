@@ -33,7 +33,7 @@ import org.ameba.jpa.BaseEntity;
 @Entity
 @Table(name = "T_ANSWER_DEF")
 @Getter
-public class AnswerDefinition extends BaseEntity {
+class AnswerDefinition extends BaseEntity {
 
     /** The provided answer text. */
     private String text;

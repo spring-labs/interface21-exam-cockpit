@@ -15,13 +15,15 @@
  */
 package io.interface21.domain;
 
+import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
+import javax.validation.constraints.NotNull;
 
 import lombok.Getter;
 import org.ameba.jpa.BaseEntity;
 
 /**
- * A Person.
+ * A Person is base class for all users.
  *
  * @author <a href="mailto:scherrer@openwms.org">Heiko Scherrer</a>
  * @version 1.0
@@ -30,6 +32,8 @@ import org.ameba.jpa.BaseEntity;
 @MappedSuperclass
 @Getter
 class Person extends BaseEntity {
-
+    /** Unique username. */
+    @Column(unique = true)
+    @NotNull
     private String username;
 }

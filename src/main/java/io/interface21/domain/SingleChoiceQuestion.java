@@ -20,8 +20,10 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.util.Set;
 
+import lombok.Getter;
+
 /**
- * A SingleChoiceQuestion.
+ * A SingleChoiceQuestion is a question that only allows to select one answer.
  *
  * @author <a href="mailto:scherrer@openwms.org">Heiko Scherrer</a>
  * @version 1.0
@@ -29,8 +31,10 @@ import java.util.Set;
  */
 @Entity
 @DiscriminatorValue("SINGLE")
+@Getter
 class SingleChoiceQuestion extends Question<CheckableAnswerDefinition> {
 
+    /** All possible answers. */
     @OneToMany(mappedBy = "question")
     private Set<CheckableAnswerDefinition> answers;
 }

@@ -16,19 +16,19 @@
 package io.interface21.domain;
 
 /**
- * A ExamType.
+ * A QuestionType.
  *
  * @author <a href="mailto:scherrer@openwms.org">Heiko Scherrer</a>
  * @version 1.0
  * @since 1.0
  */
 public enum QuestionType {
-
+    /** Multiple choices possible. */
     MULTIPLE_CHOICE,
-
+    /** Single choice allowed. */
     SINGLE_CHOICE,
-
+    /** Textual answer required. */
     TEXTUAL,
-
+    /** A puzzle. */
     PUZZLE
 }
