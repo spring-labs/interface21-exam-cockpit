@@ -5,6 +5,7 @@ export class Exam {
     examIdentifier: string;
     title: string;
     maxScorePoints: number;
+    duration: number = 45;
     version: string;
     active: boolean;
     questions: Array<Question>;
