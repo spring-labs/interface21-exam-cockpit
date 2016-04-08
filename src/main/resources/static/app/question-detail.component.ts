@@ -24,7 +24,7 @@ export class QuestionDetailComponent implements OnInit {
 
     ngOnInit() {
         let id = +this._routeParams.get('id');
-        this.question = this._questionService.questions.filter(q => q.id == id)[0];
+        this.question = this._questionService.questions.filter(q => q.appid == id)[0];
     }
     
     showTypeCombo() : boolean {

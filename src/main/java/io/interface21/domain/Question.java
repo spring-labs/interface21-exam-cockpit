@@ -38,6 +38,6 @@ class Question<T extends AnswerDefinition> extends BaseEntity {
     private String text;
     /** An order field is used to sort multiple questions of an exam. */
     private int order;
-    /** A weight of correctness. */
-    private BigDecimal weight;
+    /** A maximum achievable score points. */
+    private BigDecimal scorePoints;
 }

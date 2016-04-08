@@ -24,7 +24,8 @@ export class AnswersTableComponent implements OnInit {
     }
 
     click(answer: Answer) {
-        let link = ['AnswerDetail', { id: answer.id }];
+        this._answerService.answers = this.answers;
+        let link = ['AnswerDetail', { id: answer.appid }];
         this._router.navigate(link);
     }
 }

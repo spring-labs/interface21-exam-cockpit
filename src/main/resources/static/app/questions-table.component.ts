@@ -24,7 +24,7 @@ export class QuestionsTableComponent implements OnInit {
     }
 
     click(question: Question) {
-        let link = ['QuestionDetail', { id: question.id }];
+        let link = ['QuestionDetail', { id: question.appid }];
         this._router.navigate(link);
     }
 }

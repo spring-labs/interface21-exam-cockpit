@@ -3,33 +3,44 @@ import { RouteConfig, Router, RouteParams } from 'angular2/router';
 
 import { Exam } from './exam';
 import { Question } from './question';
+import { Answer } from './answer';
 import { QuestionType } from './questionType';
 
+import { QuestionService } from './question-service';
 import { ExamService } from './exam-service';
+import { AnswerService } from './answer-service';
+
+import { AnswersTableComponent } from './answers-table.component';
 
 @Component({
     selector: 'add-question',
-    templateUrl: 'app/views/add-question.component.html'
+    templateUrl: 'app/views/add-question.component.html',
+    directives: [AnswersTableComponent]
 })
 export class AddQuestionComponent implements OnInit {
 
     title = "Question";
 
-    @Input() exam: Exam;
+    exam: Exam;
     question: Question;
     moreQuestionsAllowed: boolean = true;
     isNextHidden: boolean = true;
 
     constructor(
         private _examService: ExamService,
+        private _questionService: QuestionService,
+        private _answerService: AnswerService,
         private _router: Router,
         private _routeParams: RouteParams
     ){
+        // initialize for data binding
         this.question = new Question;
     }
 
+    // initialize from model 
     ngOnInit() {
         this.exam = this._examService.currentExam;
+        this.question = this._questionService.currentQuestion;
     }
     
     routerOnActivate(nextInstruction, prevInstruction) {
@@ -55,7 +66,9 @@ export class AddQuestionComponent implements OnInit {
 
     addAnswer() {
         this.addQuestion();
-        let link = ['AddAnswer', { question: this.question }];
+        this._answerService.currentAnswer = this.question.dtype == 'TEXTUAL' ? new Answer('TEXTUAL') : new Answer('CHECKABLE');
+        this._questionService.currentQuestion = this.question;
+        let link = ['AddAnswer'];
         this._router.navigate(link);
     }
 

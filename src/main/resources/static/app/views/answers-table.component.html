@@ -3,6 +3,7 @@
         <thead>
             <tr class="row">
                 <th>Order</th>
+                <th>Type</th>
                 <th>Text</th>
                 <th>Weight</th>
             </tr>
@@ -10,6 +11,7 @@
         <tbody>
             <tr class="row" *ngFor="#answer of answers" (click)="click(answer)">
                 <td>{{answer.order}}</td>
+                <td>{{answer.dtype}}</td>
                 <td>{{answer.text}}</td>
                 <td>{{answer.weight}}</td>
             </tr>

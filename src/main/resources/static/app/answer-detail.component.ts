@@ -20,7 +20,7 @@ export class AnswerDetailComponent implements OnInit {
 
     ngOnInit() {
         let id = +this._routeParams.get('id');
-        this.answer = this._answerService.answers.filter(a => a.id == id)[0];
+        this.answer = this._answerService.answers.filter(a => a.appid == id)[0];
     }
 
     goBack() {

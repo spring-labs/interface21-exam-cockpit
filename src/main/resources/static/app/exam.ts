@@ -1,7 +1,8 @@
 import { Question } from './question';
 
 export class Exam {
-    id: number;
+    id: number; // make private when binding to backend
+    appid: number;
     examIdentifier: string;
     title: string;
     maxScorePoints: number;
@@ -9,4 +10,8 @@ export class Exam {
     version: string;
     active: boolean;
     questions: Array<Question>;
+
+    constructor(){
+        this.appid = Math.floor(Math.random() * 1000);
+    }
 }

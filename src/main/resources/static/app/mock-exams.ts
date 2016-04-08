@@ -9,7 +9,7 @@ export var EXAMS: Exam[] = [
             "id": 1,
             "text": "When did Napoleon die?",
             "order": 1,
-            "weight": 20,
+            "scorePoints": 20,
             "dtype": "SINGLE",
             "answers": [ 
                 <Answer> {
@@ -46,7 +46,7 @@ export var EXAMS: Exam[] = [
             "id": 2,
             "text": "When was Charlie Brown born?",
             "order": 2,
-            "weight": 10,
+            "scorePoints": 10,
             "dtype": "SINGLE"
         }    
     

@@ -17,6 +17,7 @@ package io.interface21.domain;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import java.math.BigDecimal;
 
 import lombok.Getter;
 
@@ -32,4 +33,6 @@ import lombok.Getter;
 @Getter
 public class TextualAnswerDefinition extends AnswerDefinition {
 
+    /** The achieved score points. */
+    private BigDecimal scorePoints;
 }

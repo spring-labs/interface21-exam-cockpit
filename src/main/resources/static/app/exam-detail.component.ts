@@ -29,7 +29,7 @@ export class ExamDetailComponent implements OnInit {
     }
 
     goBack() {
-        this._examService.getExam(this.exam.id)
+        this._examService.getExam(this.exam.appid)
             .then(e => {
                 this.exam = e;
                 this.title = e.examIdentifier;

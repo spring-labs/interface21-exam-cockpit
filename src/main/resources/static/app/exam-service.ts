@@ -14,13 +14,13 @@ export class ExamService {
 
     getExam(id: number) {
         return Promise.resolve(EXAMS).then(
-            exams => exams.filter(exam => exam.id === id)[0]
+            exams => exams.filter(exam => exam.appid === id)[0]
         );
     }
     
     save(exam: Exam) {
         return Promise.resolve(EXAMS).then(
-            exams => exams.filter(e => e.id === exam.id)[0] = exam
+            exams => exams.filter(e => e.appid === exam.appid)[0] = exam
         );
     }
 }
