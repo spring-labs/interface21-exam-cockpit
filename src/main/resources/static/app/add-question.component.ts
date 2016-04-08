@@ -23,7 +23,6 @@ export class AddQuestionComponent implements OnInit {
 
     exam: Exam;
     question: Question;
-    moreQuestionsAllowed: boolean = true;
     isNextHidden: boolean = true;
 
     constructor(
@@ -41,13 +40,8 @@ export class AddQuestionComponent implements OnInit {
     ngOnInit() {
         this.exam = this._examService.currentExam;
         this.question = this._questionService.currentQuestion;
+        this.isNextHidden = this.question.answers === undefined || this.question.answers.length === 0;
     }
-    
-    routerOnActivate(nextInstruction, prevInstruction) {
-        if (this.question.answers !== undefined && this.question.answers.length > 0) {
-            this.isNextHidden = true;
-        }
-     }
     
     addQuestion() {
         if (this.exam.questions === undefined) {
@@ -56,13 +50,13 @@ export class AddQuestionComponent implements OnInit {
             this.exam.questions.push(this.question);
         }
     }
-    
+    /*
     newQuestion() {
         this.addQuestion();
         this.question = new Question;
         let link = ['AddQuestion', { exam: this.exam }];
         this._router.navigate(link);
-    }
+    }*/
 
     addAnswer() {
         this.addQuestion();
@@ -72,7 +66,13 @@ export class AddQuestionComponent implements OnInit {
         this._router.navigate(link);
     }
 
-    complete() {
+    save() {
+        this._examService.currentExam.questions.push(this.question);
+        this.gotoHome();
+    }
 
+    private gotoHome() {
+        let link = ['Exams'];
+        this._router.navigate(link);
     }
 }

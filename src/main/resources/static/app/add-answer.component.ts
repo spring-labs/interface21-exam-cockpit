@@ -50,5 +50,4 @@ export class AddAnswerComponent implements OnInit {
         let link = ['AddQuestion'];
         this._router.navigate(link);
     }
-
 }
