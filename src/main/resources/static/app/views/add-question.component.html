@@ -4,13 +4,21 @@
 <div class="form-group">
     <label for="weightTxt" class="col-sm-2 control-label">Type</label>
 
-    <div class="col-sm-12">
+    <div class="col-sm-12" [hidden]="!noAnswersSet">
         <select id="typeCmb" class="form-control" [(ngModel)]="question.dtype">
             <option selected value="MULTIPLE">Multiple Choice</option>
             <option value="SINGLE">Single Choice</option>
             <option value="FREETEXT">Freetext</option>
             <option value="PUZZLE">Puzzle</option>
         </select>
+    </div>
+    <div class="col-sm-12" [hidden]="noAnswersSet">
+        <span [ngSwitch]="question.dtype">
+            <span *ngSwitchWhen="'MULTIPLE'">Multiple Choice</span>
+            <span *ngSwitchWhen="'SINGLE'">Single Choice</span>
+            <span *ngSwitchWhen="'FREETEXT'">Freetext</span>
+            <span *ngSwitchWhen="'PUZZLE'">Puzzle</span>
+        </span>
     </div>
 </div>
 <div class="form-group">
@@ -31,7 +39,7 @@
 <div class="form-group" *ngIf="question.answers">
     <label class="col-sm-2 control-label">Answers</label>
     <div class="col-sm-10">
-        <i21-answers-table [answers]="question.answers"></i21-answers-table>
+        <i21-answers-table [answers]="question.answers" [removable]="true"></i21-answers-table>
     </div>
 </div>
 
@@ -40,12 +48,7 @@
         <button type="button" class="btn btn-default" (click)="addAnswer()">Add Answer</button>
     </div>
 </div>
-<!--div class="form-group" [hidden]="isNextHidden">
-    <div class="col-sm-10">
-        <button type="button" class="btn btn-default" (click)="newQuestion()">Add Question</button>
-    </div>
-</div-->
-<div class="form-group" [hidden]="isNextHidden">
+<div class="form-group" [hidden]="noAnswersSet">
     <div class="col-sm-10">
         <button type="button" class="btn btn-default" (click)="save()">Save</button>
     </div>

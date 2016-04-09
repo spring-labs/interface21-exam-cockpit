@@ -23,7 +23,7 @@ export class AddQuestionComponent implements OnInit {
 
     exam: Exam;
     question: Question;
-    isNextHidden: boolean = true;
+    noAnswersSet: boolean = true;
 
     constructor(
         private _examService: ExamService,
@@ -40,7 +40,7 @@ export class AddQuestionComponent implements OnInit {
     ngOnInit() {
         this.exam = this._examService.currentExam;
         this.question = this._questionService.currentQuestion;
-        this.isNextHidden = this.question.answers === undefined || this.question.answers.length === 0;
+        this.noAnswersSet = this.question.answers === undefined || this.question.answers.length === 0;
     }
     
     addQuestion() {
@@ -50,13 +50,6 @@ export class AddQuestionComponent implements OnInit {
             this.exam.questions.push(this.question);
         }
     }
-    /*
-    newQuestion() {
-        this.addQuestion();
-        this.question = new Question;
-        let link = ['AddQuestion', { exam: this.exam }];
-        this._router.navigate(link);
-    }*/
 
     addAnswer() {
         this.addQuestion();

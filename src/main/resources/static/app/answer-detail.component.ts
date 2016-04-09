@@ -12,6 +12,7 @@ export class AnswerDetailComponent implements OnInit {
 
     answer: Answer;
     id: string;
+    removable: boolean;
 
     constructor(
         private _routeParams: RouteParams,
@@ -19,11 +20,16 @@ export class AnswerDetailComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.removable = this._answerService.removable;
         let id = +this._routeParams.get('id');
         this.answer = this._answerService.answers.filter(a => a.appid == id)[0];
     }
 
     goBack() {
         window.history.back();
+    }
+    
+    remove() {
+        // todo remove from question...not nice here
     }
 }

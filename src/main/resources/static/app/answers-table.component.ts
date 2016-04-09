@@ -12,6 +12,7 @@ import { AnswerService } from './answer-service';
 export class AnswersTableComponent implements OnInit {
 
     @Input() answers: Answer[];
+    @Input() removable: boolean;
 
     constructor(
         private _router: Router,
@@ -24,6 +25,7 @@ export class AnswersTableComponent implements OnInit {
     }
 
     click(answer: Answer) {
+        this._answerService.removable = this.removable;
         this._answerService.answers = this.answers;
         let link = ['AnswerDetail', { id: answer.appid }];
         this._router.navigate(link);
