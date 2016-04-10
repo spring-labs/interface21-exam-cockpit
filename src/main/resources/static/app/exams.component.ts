@@ -1,14 +1,15 @@
 import { Component, OnInit } from 'angular2/core';
 import { Router } from 'angular2/router';
+import { HTTP_PROVIDERS, Http, Response } from 'angular2/http';
 
 import { Exam } from './exam';
 import { ExamService } from './exam-service';
 
-
 @Component({
     selector: 'view-exams',
     templateUrl: 'app/views/exams.component.html',
-    styleUrls: ['app/views/css/exams.component.css']
+    styleUrls: ['app/views/css/exams.component.css'],
+    providers: [HTTP_PROVIDERS]
 })
 export class ExamsComponent implements OnInit {
 
@@ -21,7 +22,8 @@ export class ExamsComponent implements OnInit {
 
     ngOnInit() {
         this._examService.getExams()
-            .then(e => this.exams = e);
+                     .subscribe(
+                       exams => this.exams = exams);
     }
 
     gotoDetail(exam: Exam) {
