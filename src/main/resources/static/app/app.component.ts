@@ -1,5 +1,6 @@
 import {Component} from 'angular2/core';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
+import { HTTP_PROVIDERS, Http, Response } from 'angular2/http';
 
 import { ExamsComponent } from './exams.component';
 import { ExamDetailComponent } from './exam-detail.component';
@@ -29,6 +30,7 @@ import { AnswerDetailComponent } from './answer-detail.component';
     directives: [ROUTER_DIRECTIVES],
     providers: [
         ROUTER_PROVIDERS,
+        HTTP_PROVIDERS,
         ExamService,
         QuestionService,
         AnswerService
