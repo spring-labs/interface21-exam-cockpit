@@ -37,7 +37,7 @@ import lombok.Getter;
 class PuzzleQuestion extends Question<CheckableAnswerDefinition> {
 
     /** Has multiple answers. */
-    @OneToMany(mappedBy = "question")
+    @OneToMany(mappedBy = "question", targetEntity = AnswerDefinition.class)
     @Min(2)
     private Set<CheckableAnswerDefinition> answers = new LinkedHashSet<>();
 }

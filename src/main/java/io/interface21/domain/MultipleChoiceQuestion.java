@@ -36,7 +36,7 @@ import lombok.Getter;
 class MultipleChoiceQuestion extends Question<CheckableAnswerDefinition> {
 
     /** Possible answers this question has. */
-    @OneToMany(mappedBy = "question")
+    @OneToMany(mappedBy = "question", targetEntity = AnswerDefinition.class)
     @Min(2)
     private Set<CheckableAnswerDefinition> answers;
 }
