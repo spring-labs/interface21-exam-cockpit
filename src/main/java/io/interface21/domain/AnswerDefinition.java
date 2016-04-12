@@ -44,4 +44,10 @@ class AnswerDefinition extends BaseEntity {
     /** A reference to the question. */
     @OneToOne
     private Question question;
+
+    public AnswerDefinition(String text, int order, BigDecimal weight) {
+        this.text = text;
+        this.order = order;
+        this.weight = weight;
+    }
 }

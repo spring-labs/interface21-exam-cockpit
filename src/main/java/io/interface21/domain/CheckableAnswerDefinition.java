@@ -17,6 +17,7 @@ package io.interface21.domain;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import java.math.BigDecimal;
 
 import lombok.Getter;
 
@@ -32,4 +33,7 @@ import lombok.Getter;
 @Getter
 class CheckableAnswerDefinition extends AnswerDefinition {
 
+    public CheckableAnswerDefinition(String text, int order, BigDecimal weight) {
+        super(text, order, weight);
+    }
 }

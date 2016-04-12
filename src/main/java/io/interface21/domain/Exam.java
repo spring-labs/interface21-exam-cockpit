@@ -22,7 +22,10 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import java.util.Set;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.ameba.jpa.BaseEntity;
 
 /**
@@ -35,6 +38,8 @@ import org.ameba.jpa.BaseEntity;
 @Entity
 @Table(name = "T_EXAM", uniqueConstraints = {@UniqueConstraint(name = "UC_BK_ACTIVE", columnNames = {"C_BK", "C_ACTIVE"})})
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 class Exam extends BaseEntity {
 
     /** A unique business key for the exam. */
@@ -54,11 +59,4 @@ class Exam extends BaseEntity {
     /** An exam has a couple of questions. */
     @OneToMany
     private Set<Question> questions;
-
-    /**
-     * Dear JPA...
-     */
-    protected Exam() {
-
-    }
 }

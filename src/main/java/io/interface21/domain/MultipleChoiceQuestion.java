@@ -19,9 +19,12 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Min;
+import java.math.BigDecimal;
 import java.util.Set;
 
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 /**
  * A MultipleChoiceQuestion is a question that allows to select more than one answers.
@@ -33,10 +36,16 @@ import lombok.Getter;
 @Entity
 @DiscriminatorValue("MULTIPLE")
 @Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 class MultipleChoiceQuestion extends Question<CheckableAnswerDefinition> {
 
     /** Possible answers this question has. */
     @OneToMany(mappedBy = "question", targetEntity = AnswerDefinition.class)
     @Min(2)
     private Set<CheckableAnswerDefinition> answers;
+
+    protected MultipleChoiceQuestion(String text, int order, BigDecimal scorePoints, Set<CheckableAnswerDefinition> answers) {
+        super(text, order, scorePoints);
+        this.answers = answers;
+    }
 }

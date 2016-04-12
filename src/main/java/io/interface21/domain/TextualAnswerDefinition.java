@@ -35,4 +35,8 @@ public class TextualAnswerDefinition extends AnswerDefinition {
 
     /** The achieved score points. */
     private BigDecimal scorePoints;
+
+    public TextualAnswerDefinition(String text, int order, BigDecimal weight) {
+        super(text, order, weight);
+    }
 }

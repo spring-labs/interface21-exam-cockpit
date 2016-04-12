@@ -19,7 +19,9 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.math.BigDecimal;
 
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.ameba.jpa.BaseEntity;
 
 /**
@@ -32,7 +34,8 @@ import org.ameba.jpa.BaseEntity;
 @Entity
 @Table(name = "T_QUESTION")
 @Getter
-class Question<T extends AnswerDefinition> extends BaseEntity {
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+abstract class Question<T extends AnswerDefinition> extends BaseEntity {
 
     /** Question text. */
     private String text;
@@ -40,4 +43,10 @@ class Question<T extends AnswerDefinition> extends BaseEntity {
     private int order;
     /** A maximum achievable score points. */
     private BigDecimal scorePoints;
+
+    protected Question(String text, int order, BigDecimal scorePoints) {
+        this.text = text;
+        this.order = order;
+        this.scorePoints = scorePoints;
+    }
 }
