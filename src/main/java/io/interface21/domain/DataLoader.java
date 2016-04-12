@@ -15,9 +15,10 @@
  */
 package io.interface21.domain;
 
+import java.math.BigDecimal;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.ameba.app.SpringProfiles;
@@ -32,11 +33,12 @@ import org.springframework.context.annotation.Profile;
  * @version 1.0
  * @since 1.0
  */
-@Profile(SpringProfiles.DEVELOPMENT_PROFILE)
+@Profile(SpringProfiles.PRODUCTION_PROFILE)
 class DataLoader implements CommandLineRunner {
 
     @Autowired
     private ExamRepository repo;
+
     /**
      * Callback used to run the bean.
      *
@@ -47,12 +49,23 @@ class DataLoader implements CommandLineRunner {
     public void run(String... args) throws Exception {
         Stream.of(new Exam[]{
                 new Exam("1", "Systems and Signals", 20, 5400, "1.0", false, Collections.emptySet()),
-                new Exam("1", "Systems and Signals", 20, 5400, "1.1", true, buildQuestions(5))
-                }).forEach(e -> repo.save(e));
+                new Exam("2", "Systems and Signals", 20, 5400, "1.1", true, buildSysQuestions())
+        }).forEach(e -> repo.save(e));
     }
 
-    private Set<Question> buildQuestions(int count) {
-        Set<Question> result = new HashSet<>(count);
-        return result;
+    private Set<Question> buildSysQuestions() {
+        return Stream.of(
+                new Question[]{
+                        new MultipleChoiceQuestion("What is a discrete transformation algorithm?", 1, BigDecimal.valueOf(0L),
+                                Stream.of(
+                                        new CheckableAnswerDefinition[]{
+                                                new CheckableAnswerDefinition("Laplace", 1, BigDecimal.valueOf(0L)),
+                                                new CheckableAnswerDefinition("Fourier", 2, BigDecimal.valueOf(0L)),
+                                                new CheckableAnswerDefinition("Z", 3, BigDecimal.valueOf(100L)),
+                                                new CheckableAnswerDefinition("Garett", 4, BigDecimal.valueOf(0L))
+                                        }).collect(Collectors.toSet())
+                        )
+                }
+        ).collect(Collectors.toSet());
     }
 }
