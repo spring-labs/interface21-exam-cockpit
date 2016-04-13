@@ -1,1 +1,1 @@
-web:    java $JAVA_OPTS -jar --port $PORT --expand-war target/cockpit.jar
+web:    java $JAVA_OPTS -jar target/cockpit.jar --port $PORT
