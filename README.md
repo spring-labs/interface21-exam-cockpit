@@ -28,7 +28,7 @@ First ensure that you have JDK in verion 1.8+ installed, in order to compile and
 ### Clone and Develop
 
 ```
-$ git clone git@github.com:openwms/interface21-exam-cockpit.git exam-cockpit
+$ git clone git@github.com:interface21io/interface21-exam-cockpit.git exam-cockpit
 $ cd exam-cockpit/src/main/resources/static
 $ npm start
 ```
@@ -42,12 +42,14 @@ go back to the webbrowser.
 ### Clone, Build and Run
 
 ```
-$ git clone git@github.com:openwms/interface21-exam-cockpit.git exam-cockpit
+$ git clone git@github.com:interface21io/interface21-exam-cockpit.git exam-cockpit
 $ cd exam-cockpit
 $ mvn package
 $ java -jar target/cockpit.jar
 ```
 
-Open your favorite webbrowser and go to [http://localhost:8080/index.html](http://localhost:8080/index.html). The default user has the following credentials: `username: admin` and `password: test`. The available operations can be found by sending a `GET` request to [/api](http://localhost:8080/api).
+Open your favorite webbrowser and go to [http://localhost:8080/index.html](http://localhost:8080/index.html). The default user has the
+following credentials: `username: admin` and `password: test`. The available operations can be found by sending a `GET` request to
+[/api](http://localhost:8080/api).
 
 [dModel]: ./src/site/img/domain_model.png
