@@ -1,7 +1,21 @@
 # i21 Exam Cockpit
 
+The i21 Exam Cockpit serves as a demo application, that is used in lectures about "Mobile Backend Engineering". Students will built this
+application step-by-step and will use it afterwards to take an exam.
+
+## Technologies
+
+- Java SE 1.8
+- Spring Boot, Spring Data Rest, Spring Cloud OAuth2
+- JPA w/ Hibernate
+- Netflix components: Eureka, Ribbon, Zuul, Archaius, Feign, Hystrix
+- Angular (2)
+- Twitter Bootstrap
+- Maven (prob. Gradle)
+- OAuth2
+
 ## Functional Description
-An user interface with corresponding backend services to manage exams and their contents.
+An user interface with corresponding backend services to manage, execute and evaluate electronic exams.
 
 The Business Object Model looks like follows
 
@@ -59,7 +73,9 @@ following credentials: `username: admin` and `password: test`. The available ope
 For this sample app we try to make the backend services as simple as possible - with less code as possible. A more fine-grained domain
 model than the [BOM][Domain model] is used as persisted model (Entity Object Model) and API model (usually referred to as View Object Model).
 Therefore we annotate our classes with JPA annotations and expose them as RESTful resources (Spring Data Rest annotations).
-No layering - just stuff, no fluff.
+
+> No layering - just stuff, no fluff.
+
 Bootstrapping the backend services happens as Spring Boot application (class `ExamCockpitApplication`). Since we're using HATEOS to expose
 our domain, we only need to expose the entry points to the domain model. All other types can be referenced through the RESTful API.
 
@@ -73,7 +89,7 @@ referenced from other domain classes.
 ![Persisted model][pModel]
 
 The `Exam` and `Execution` class (green color) are those we define as model entry points. From both classes we can reference all other types
-of interest.
+of interest. Only for these two classes we need to implement a Spring Data Repository.
 
 
 
