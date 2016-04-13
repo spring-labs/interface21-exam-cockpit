@@ -1,6 +1,6 @@
 # i21 Exam Cockpit
 
-The i21 Exam Cockpit serves as a demo application, that is used in lectures about "Mobile Backend Engineering". Students will built this
+The i21 Exam Cockpit serves as a demo application, that is used in lectures on "Mobile Backend Engineering". Students will built this
 application step-by-step and will use it afterwards to take an exam.
 
 ## Technologies
@@ -17,7 +17,7 @@ application step-by-step and will use it afterwards to take an exam.
 ## Functional Description
 An user interface with corresponding backend services to manage, execute and evaluate electronic exams.
 
-The Business Object Model looks like follows
+The Business Object Model (BOM) looks like follows
 
 ![Domain model][dModel]
 
@@ -36,6 +36,11 @@ type of question (`QuestionType`).
 ### Deactivate obsolete exams
 Exams may change over the time and only the newest version of the exam definition should be kept active and released for execution. A lecturer
 can modify exams, apply version information to them and activate or deactivate an exam.
+
+A candidate can...
+
+### Take an Exam
+
 
 ## Deployment process
 
@@ -91,7 +96,9 @@ referenced from other domain classes.
 The `Exam` and `Execution` class (green color) are those we define as model entry points. From both classes we can reference all other types
 of interest. Only for these two classes we need to implement a Spring Data Repository.
 
+### Architecture (Frontend)
 
+The frontend application to manage exams is built with Angular (version 2), based on TypeScript and Twitter Bootstrap.
 
 [dModel]: ./src/site/img/domain_model.png
 [pModel]: ./src/site/img/persisted_model.png
