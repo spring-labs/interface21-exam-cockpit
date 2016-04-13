@@ -30,10 +30,6 @@
             <id>PROD</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
-                <property>
-                    <name>spring.profiles.active</name>
-                    <value>PROD</value>
-                </property>
             </activation>
             <dependencies>
                 <dependency>
@@ -45,12 +41,6 @@
         </profile>
         <profile>
             <id>NOT-PROD</id>
-            <activation>
-                <property>
-                    <name>spring.profiles.active</name>
-                    <value>!PROD</value>
-                </property>
-            </activation>
             <dependencies>
                 <dependency>
                     <groupId>com.h2database</groupId>
