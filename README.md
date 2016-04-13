@@ -1,11 +1,13 @@
 # i21 Exam Cockpit
 
 ## Functional Description
-An user interface with corresponding backend services to manage exams and their contents. A lecturer is able to ...
+An user interface with corresponding backend services to manage exams and their contents.
 
-The domain model looks like follows
+The Business Object Model looks like follows
 
 ![Domain model][dModel]
+
+A lecturer is able to ...
 
 ### Create exams
 An exam (`Exam`, or better spoken exam definition) combines a collection of questions that need to be answered by exam candidates. A maximum number of score points can be achieved by
@@ -51,5 +53,22 @@ $ java -jar target/cockpit.jar
 Open your favorite webbrowser and go to [http://localhost:8080/index.html](http://localhost:8080/index.html). The default user has the
 following credentials: `username: admin` and `password: test`. The available operations can be found by sending a `GET` request to
 [/api](http://localhost:8080/api).
+
+### Architecture (Backend)
+
+For this sample app we try to make the backend service as simple as possible, spoken with less code as possible. A more fine-grained domain
+model is used as persisted model (Entity Object Model) and API model (usually refered to as View Object Model). Therefore we annotate our
+classes with JPA annotations and expose them as RESTful resources (Spring Data Rest annotations). No layering - just stuff, no fluff.
+Bootstrapping of the backend services is done with a Spring Boot application (class `ExamCockpitApplication`). Since we're using HATEOS to
+expose our domain, we only need to expose the entry points into the domain model.
+
+#### How to identify domain model entry points?
+
+Well, an entry point is a type that has no incoming directed relationships.
+
+To identify all entry points we need to have a closer look at the effective Java
+
+
+
 
 [dModel]: ./src/site/img/domain_model.png
