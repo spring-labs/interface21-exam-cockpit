@@ -3,8 +3,9 @@
 The i21 Exam Cockpit serves as a demo application, that is used in lectures on "Mobile Backend Engineering". Students will built this
 application step-by-step and will use it afterwards to take an exam.
 
-The latest version of Exam Cockpit is running on Heroku [https://exam-cockpit.herokuapp.com/index.html][https://exam-cockpit.herokuapp.com/index.html]
-(login with username/password: user/test)
+The latest version of Exam Cockpit is running on Heroku (login with username/password: user/test)
+
+[https://exam-cockpit.herokuapp.com/index.html](https://exam-cockpit.herokuapp.com/index.html)
 
 ## Technologies
 
