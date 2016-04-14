@@ -12,15 +12,17 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
  * Bootstrapper.
  */
-@SpringBootApplication
-@EntityScan
-@EnableWebMvc
-@EnableJpaRepositories
-public class ExamCockpitApplication {
+@SpringBootApplication // the master annotation! Enable the world!
+@EnableWebMvc // do we need this?
+@EntityScan // we dont' need this but show how to configure here
+@EnableJpaRepositories // as far we don't need nested repos we don't this here
+public class ExamCockpitApplication extends WebMvcConfigurerAdapter {
 
 	/**
 	 * Permit all from everywhere - on a developers notebook.
@@ -41,5 +43,15 @@ public class ExamCockpitApplication {
      */
 	public static void main(String[] args) {
 		SpringApplication.run(ExamCockpitApplication.class, args);
+	}
+
+	/**
+	 * {@inheritDoc} <p>This implementation is empty.
+	 *
+	 * @param registry
+	 */
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
 	}
 }
