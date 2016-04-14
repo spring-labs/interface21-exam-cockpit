@@ -64,6 +64,32 @@ go back to the webbrowser.
 
 ## Development process
 
+### First option: Separate frontend and backend development
+
+This scenario is used to develop the backend and the frontend part locally on a developers machine, where a postgres database is running
+locally, too. The backend services are started as usual Spring Boot app and the frontend needs to be started with `npm` to speed up
+development.
+
+* First of all you should have an instance of postgres running locally
+
+* Second start the backend in dev mode with dev profile to disable _csrf security options_
+
+We call the heroku-cli to start our app locally, using the environment properties for development (.env.dev) and activate the Spring
+profile `DEV` to disable CSRF protection ('cause frontend is connecting from a different port.
+
+```
+$ heroku local -e .env.dev --spring.profiles.active=HEROKU-DEV,DEV
+```
+
+* Third start the frontend
+
+Change into the main folder of the application and start the Node package manager to run the app...
+
+```
+$ cd exam-cockpit/src/main/resources/static
+$ npm start
+```
+
 ### Clone, Build and Run
 
 ```
