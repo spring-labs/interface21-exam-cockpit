@@ -1,9 +1,9 @@
 import { Injectable } from 'angular2/core';
-import { Http, Response } from 'angular2/http';
+import { Http, Response, Headers, RequestOptions } from 'angular2/http';
 import { Observable } from 'rxjs/Observable';
 import { Exam } from './exam.ts';
 
-import { EXAMS } from './mock-exams';
+//import { EXAMS } from './mock-exams';
 
 @Injectable()
 export class ExamService {
@@ -12,27 +12,47 @@ export class ExamService {
 
     constructor(private _http: Http) { }
 
-    private _examsURL = 'api/exams';
+    //    private _examsURL = './exams.js';
+    private _examsURL = 'http://localhost:5000/api/exams';
 
     getExams() {
+        let options = new RequestOptions({
+            headers: this._appendAuthorizationHeader(new Headers())
+        });
+
         return this._http.get(this._examsURL)
             .map(res => <Exam[]>res.json().data)
-            .catch(this.handleError);
+            .catch(this._handleError);
     }
-    
+
     getExam(id: number) {
-        return Promise.resolve(EXAMS).then(
-            exams => exams.filter(exam => exam.appid === id)[0]
-        );
+        let options = new RequestOptions({
+            headers: this._appendAuthorizationHeader(new Headers())
+        });
+
+        return this._http.get(this._examsURL + '/' + id, options)
+            .map(res => <Exam>res.json().data)
+            .catch(this._handleError);
     }
 
-    save(exam: Exam) {
-        return Promise.resolve(EXAMS).then(
-            exams => exams.filter(e => e.appid === exam.appid)[0] = exam
-        );
+    save(exam: Exam): Observable<Exam> {
+        let body = JSON.stringify({ name });
+        let options = new RequestOptions({
+            headers: this._appendAuthorizationHeader(new Headers({ 'Content-Type': 'application/json' }))
+        });
+
+        return this._http.post(this._examsURL, body, options)
+            .map(res => <Exam>res.json().data)
+            .catch(this._handleError)
     }
 
-    private handleError(error: Response) {
+    private _appendAuthorizationHeader(headers: Headers): Headers {
+        let h = new Headers(headers);
+        h.append('Authorization', 'Basic ' + btoa("user:test"));
+        return h;
+    }
+
+    private _handleError(error: Response) {
         console.error(error);
         return Observable.throw(error.json().error || 'Server error');
     }

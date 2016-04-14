@@ -15,7 +15,10 @@
  */
 package io.interface21.domain;
 
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
 import javax.persistence.Table;
 import java.math.BigDecimal;
 
@@ -33,6 +36,8 @@ import org.ameba.jpa.BaseEntity;
  */
 @Entity
 @Table(name = "T_QUESTION")
+@Inheritance
+@DiscriminatorColumn(name="C_DTYPE")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 abstract class Question<T extends AnswerDefinition> extends BaseEntity {
@@ -40,6 +45,7 @@ abstract class Question<T extends AnswerDefinition> extends BaseEntity {
     /** Question text. */
     private String text;
     /** An order field is used to sort multiple questions of an exam. */
+    @Column(name = "C_ORDER")
     private int order;
     /** A maximum achievable score points. */
     private BigDecimal scorePoints;

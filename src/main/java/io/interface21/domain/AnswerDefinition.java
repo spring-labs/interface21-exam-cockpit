@@ -15,7 +15,10 @@
  */
 package io.interface21.domain;
 
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.math.BigDecimal;
@@ -32,12 +35,15 @@ import org.ameba.jpa.BaseEntity;
  */
 @Entity
 @Table(name = "T_ANSWER_DEF")
+@Inheritance
+@DiscriminatorColumn(name="C_DTYPE")
 @Getter
 class AnswerDefinition extends BaseEntity {
 
     /** The provided answer text. */
     private String text;
     /** An order field is used to sort multiple answers of a question. */
+    @Column(name = "C_ORDER")
     private int order;
     /** A weight of correctness. */
     private BigDecimal weight;

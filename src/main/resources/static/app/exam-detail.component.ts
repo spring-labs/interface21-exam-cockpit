@@ -21,27 +21,28 @@ export class ExamDetailComponent implements OnInit {
 
     ngOnInit() {
         let id = +this._routeParams.get('id');
-        this._examService.getExam(id)
-            .then(e => {
-                this.exam = e;
-                this.title = e.examIdentifier;
-            });
+        if (id !== undefined) {
+            this._examService.getExam(id)
+                .subscribe(e => {
+                    this.exam = e; this.title = e.examIdentifier;
+                },
+                error => {
+                    this.exam = this._examService.currentExam.appid === id ? this._examService.currentExam : undefined;
+                });
+        }
     }
 
     goBack() {
         this._examService.getExam(this.exam.appid)
-            .then(e => {
-                this.exam = e;
-                this.title = e.examIdentifier;
+            .subscribe(e => {
+                this.exam = e;this.title = e.examIdentifier;
                 window.history.back();
             });
     }
 
     save() {
         this._examService.save(this.exam)
-            .then(e => {
-                this.exam = e;
-                this.goBack();
-            });
+            .subscribe(exam => {
+                this.exam = exam; this.goBack();});
     }
 }

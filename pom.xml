@@ -20,7 +20,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <ameba-lib.version>1.4</ameba-lib.version>
+        <ameba-lib.version>1.5-SNAPSHOT</ameba-lib.version>
         <java.version>1.8</java.version>
         <lombok.version>1.16.6</lombok.version>
     </properties>

@@ -65,7 +65,7 @@ export class AddQuestionComponent implements OnInit {
     }
 
     private gotoHome() {
-        let link = ['Exams'];
+        let link = ['ExamDetail', { id: this._examService.currentExam.appid }];
         this._router.navigate(link);
     }
 }
