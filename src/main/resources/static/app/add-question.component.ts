@@ -52,7 +52,7 @@ export class AddQuestionComponent implements OnInit {
     }
 
     addAnswer() {
-        this.addQuestion();
+        this.addQuestion()
         this._answerService.currentAnswer = this.question.dtype == 'TEXTUAL' ? new Answer('TEXTUAL') : new Answer('CHECKABLE');
         this._questionService.currentQuestion = this.question;
         let link = ['AddAnswer'];
@@ -60,8 +60,9 @@ export class AddQuestionComponent implements OnInit {
     }
 
     save() {
-        this._examService.currentExam.questions.push(this.question);
-        this.gotoHome();
+        this._examService.currentExam = this.exam
+        this._examService.currentExam.questions.push(this.question)
+        this.gotoHome()
     }
 
     private gotoHome() {

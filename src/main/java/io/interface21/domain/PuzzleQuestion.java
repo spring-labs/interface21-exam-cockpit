@@ -18,7 +18,7 @@ package io.interface21.domain;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -38,6 +38,6 @@ class PuzzleQuestion extends Question<CheckableAnswerDefinition> {
 
     /** Has multiple answers. */
     @OneToMany(mappedBy = "question", targetEntity = AnswerDefinition.class)
-    @Min(2)
+    @Size(min = 2)
     private Set<CheckableAnswerDefinition> answers = new LinkedHashSet<>();
 }

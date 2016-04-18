@@ -13,7 +13,7 @@ export class ExamService {
     constructor(private _http: Http) { }
 
     //    private _examsURL = './exams.js';
-    private _examsURL = 'http://localhost:5000/api/exams';
+    private _examsURL = 'http://localhost:8080/api/exams';
 
     getExams() {
         let options = new RequestOptions({
@@ -21,7 +21,9 @@ export class ExamService {
         });
 
         return this._http.get(this._examsURL)
-            .map(res => <Exam[]>res.json().data)
+            .map(res => {
+                <Exam[]>res.json().data._embedded.exams
+            })
             .catch(this._handleError);
     }
 

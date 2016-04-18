@@ -1,12 +1,10 @@
 package io.interface21;
 
-import javax.servlet.Filter;
-
 import org.ameba.app.SpringProfiles;
 import org.ameba.http.PermitAllCorsConfigurationSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.orm.jpa.EntityScan;
+import org.springframework.boot.context.embedded.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -20,7 +18,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  */
 @SpringBootApplication // the master annotation! Enable the world!
 @EnableWebMvc // do we need this?
-@EntityScan // we dont' need this but show how to configure here
 @EnableJpaRepositories // as far we don't need nested repos we don't this here
 public class ExamCockpitApplication extends WebMvcConfigurerAdapter {
 
@@ -29,11 +26,15 @@ public class ExamCockpitApplication extends WebMvcConfigurerAdapter {
 	 *
 	 * @return The instance
      */
-	@Profile(SpringProfiles.DEVELOPMENT_PROFILE)
+	@Profile({SpringProfiles.DEVELOPMENT_PROFILE, "HEROKU-DEV"})
 	public
 	@Bean
-	Filter corsFilter() {
-		return new CorsFilter(new PermitAllCorsConfigurationSource());
+	FilterRegistrationBean corsFilter() {
+		FilterRegistrationBean frb = new FilterRegistrationBean();
+		frb.setFilter(new CorsFilter(new PermitAllCorsConfigurationSource()));
+		frb.setOrder(0);
+		frb.addUrlPatterns("/*");
+		return frb;
 	}
 
 	/**
