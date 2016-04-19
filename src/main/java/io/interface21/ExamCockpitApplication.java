@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.filter.CorsFilter;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
@@ -17,8 +16,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * Bootstrapper.
  */
 @SpringBootApplication // the master annotation! Enable the world!
-@EnableWebMvc // do we need this?
 @EnableJpaRepositories // as far we don't need nested repos we don't this here
+//@EnableAuthorizationServer
 public class ExamCockpitApplication extends WebMvcConfigurerAdapter {
 
 	/**

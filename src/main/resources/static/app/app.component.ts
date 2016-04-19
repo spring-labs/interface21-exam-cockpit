@@ -12,10 +12,12 @@ import { AddAnswerComponent } from './add-answer.component';
 import { ExamService } from './exam-service';
 import { QuestionService } from './question-service';
 import { AnswerService } from './answer-service';
+import { SecurityService } from './security-service';
 
 import { QuestionDetailComponent } from './question-detail.component';
 import { AnswerDetailComponent } from './answer-detail.component';
 
+import { LogoutComponent } from './logout.component';
 
 @Component({
     selector: 'my-app',
@@ -23,6 +25,7 @@ import { AnswerDetailComponent } from './answer-detail.component';
         <nav>
             <a [routerLink]="['Exams']">View Exams</a>
             <a [routerLink]="['CreateExam']">Create Exam</a>
+            <a [routerLink]="['Logout']">Logout</a>
         </nav>
         <router-outlet></router-outlet>
     `,
@@ -33,10 +36,16 @@ import { AnswerDetailComponent } from './answer-detail.component';
         HTTP_PROVIDERS,
         ExamService,
         QuestionService,
-        AnswerService
+        AnswerService,
+        SecurityService
     ]
 })
 @RouteConfig([
+    {
+        path: '/logout',
+        name: 'Logout',
+        component: LogoutComponent
+    },
     {
         path: '/exams',
         name: 'Exams',
