@@ -51,6 +51,9 @@ export class ExamService {
     private _appendAuthorizationHeader(headers: Headers): Headers {
         let h = new Headers(headers);
         h.append('Authorization', 'Basic ' + btoa("user:test"));
+        // With this header Spring Security will not send a "WWW-Authenticate" header in a 401 response
+        // to avoid browsers login form 
+        h.append('X-Requested-With', 'XMLHttpRequest');
         return h;
     }
 
