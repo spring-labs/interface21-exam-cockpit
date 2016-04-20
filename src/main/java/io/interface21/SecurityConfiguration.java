@@ -57,6 +57,7 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private CsrfTokenRepository csrfTokenRepository() {
         HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
+        // Angular is sends CSRF tokens back to the server as header attribute named 'X-XSRF-TOKEN'
         repository.setHeaderName("X-XSRF-TOKEN");
         return repository;
     }

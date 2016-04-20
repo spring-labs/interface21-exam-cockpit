@@ -10,7 +10,6 @@ export class SecurityService {
     private _logoutUrl = 'http://localhost:8080/sec/logout';
 
     logout() {
-        console.log("logout");
         let options = new RequestOptions({
             headers: this._appendAuthorizationHeader(new Headers())
         });

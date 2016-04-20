@@ -18,10 +18,11 @@ export class ExamsComponent implements OnInit {
         private _examService: ExamService
     ){}
 
-    ngOnInit() {
+    ngOnInit() {/*
         this._examService.getExams()
                      .subscribe(
                        exams => this.exams = exams);
+                       */
     }
 
     gotoDetail(exam: Exam) {

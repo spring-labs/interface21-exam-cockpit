@@ -1,5 +1,5 @@
-import {Component} from 'angular2/core';
-import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
+import { Component } from 'angular2/core';
+import { Router, RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
 import { HTTP_PROVIDERS, Http, Response } from 'angular2/http';
 
 import { ExamsComponent } from './exams.component';
@@ -17,18 +17,11 @@ import { SecurityService } from './security-service';
 import { QuestionDetailComponent } from './question-detail.component';
 import { AnswerDetailComponent } from './answer-detail.component';
 
-import { LogoutComponent } from './logout.component';
+import { LoginComponent } from './login.component';
 
 @Component({
     selector: 'my-app',
-    template: `
-        <nav>
-            <a [routerLink]="['Exams']">View Exams</a>
-            <a [routerLink]="['CreateExam']">Create Exam</a>
-            <a [routerLink]="['Logout']">Logout</a>
-        </nav>
-        <router-outlet></router-outlet>
-    `,
+    templateUrl: 'app/views/app.component.html',
     styleUrls: ['app/views/css/app.component.css'],
     directives: [ROUTER_DIRECTIVES],
     providers: [
@@ -42,9 +35,9 @@ import { LogoutComponent } from './logout.component';
 })
 @RouteConfig([
     {
-        path: '/logout',
-        name: 'Logout',
-        component: LogoutComponent
+        path: '/login',
+        name: 'Login',
+        component: LoginComponent
     },
     {
         path: '/exams',
@@ -84,4 +77,15 @@ import { LogoutComponent } from './logout.component';
     }
 ])
 export class AppComponent {
+
+    constructor(
+        private _securityService: SecurityService,
+        private _router:Router
+    ) { }
+    
+    logout() {
+        this._securityService.logout();
+        let link = ['Login'];
+        this._router.navigate(link);        
+    }
 }

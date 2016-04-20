@@ -1,12 +1,16 @@
-import { Component, OnInit } from 'angular2/core';
+import { Component, OnInit, Input } from 'angular2/core';
 import { Router } from 'angular2/router';
 
 import { SecurityService } from './security-service';
 
 @Component({
-    selector: 'view-logout'
+    selector: 'view-login',
+    templateUrl: 'app/views/login.component.html',
 })
-export class LogoutComponent implements OnInit {
+export class LoginComponent implements OnInit {
+    
+    @Input() error: boolean;
+    credentials: Object = {};
 
     constructor(
         private _router: Router,
@@ -14,7 +18,6 @@ export class LogoutComponent implements OnInit {
     ){}
 
     ngOnInit() {
-        console.log("logging out");
         this._securityService.logout();
     }
 }

@@ -45,6 +45,7 @@ class CsrfHeaderFilter extends OncePerRequestFilter {
             Cookie cookie = WebUtils.getCookie(request, "XSRF-TOKEN");
             String token = csrf.getToken();
             if (cookie == null || token != null && !token.equals(cookie.getValue())) {
+                // Angular is capable to handle CSRF protection and expected a token with name XSRF-TOKEN
                 cookie = new Cookie("XSRF-TOKEN", token);
                 cookie.setPath("/");
                 response.addCookie(cookie);
