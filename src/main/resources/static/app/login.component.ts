@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from 'angular2/core';
-import { Router } from 'angular2/router';
+import { RouteParams, Router } from 'angular2/router';
 
 import { SecurityService } from './security-service';
 
@@ -14,10 +14,14 @@ export class LoginComponent implements OnInit {
 
     constructor(
         private _router: Router,
+        private _routeParams: RouteParams,
         private _securityService: SecurityService
     ){}
 
     ngOnInit() {
-        this._securityService.logout();
+        let logout = this._routeParams.get('logout');
+        if (logout) {
+            this._securityService.logout();
+        }
     }
 }
