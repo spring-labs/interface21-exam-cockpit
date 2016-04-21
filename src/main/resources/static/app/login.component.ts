@@ -10,7 +10,7 @@ import { SecurityService } from './security-service';
 export class LoginComponent implements OnInit {
     
     @Input() error: boolean;
-    credentials: Object = {};
+    credentials: Credentials = new Credentials();
 
     constructor(
         private _router: Router,
@@ -24,4 +24,12 @@ export class LoginComponent implements OnInit {
             this._securityService.logout();
         }
     }
+    
+    login() {
+        console.log("Login...");
+        this._securityService.login(this.credentials.username, this.credentials.password);
+    }
+    
 }
+
+class Credentials{ username:string;password:string}

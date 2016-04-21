@@ -85,7 +85,7 @@ export class AppComponent {
     
     logout() {
         this._securityService.logout();
-        let link = ['Login'];
+        let link = ['Login', {logout:{}}];
         this._router.navigate(link);        
     }
 }
