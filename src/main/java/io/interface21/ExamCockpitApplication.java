@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.embedded.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
+import org.springframework.core.Ordered;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,8 +37,8 @@ public class ExamCockpitApplication extends WebMvcConfigurerAdapter {
 	FilterRegistrationBean corsFilter() {
 		FilterRegistrationBean frb = new FilterRegistrationBean();
 		frb.setFilter(new CorsFilter(new PermitAllCorsConfigurationSource()));
-		frb.setOrder(0);
-		frb.addUrlPatterns("/**");
+		frb.setOrder(Ordered.HIGHEST_PRECEDENCE);
+		frb.addUrlPatterns("/*");
 		return frb;
 	}
 
