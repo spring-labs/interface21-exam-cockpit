@@ -19,8 +19,8 @@ export class LoginComponent implements OnInit {
     ){}
 
     ngOnInit() {
-        let logout = this._routeParams.get('logout');
-        if (logout) {
+        if (this._routeParams.get('logout')) {
+            console.log("Logout...");
             this._securityService.logout();
         }
     }

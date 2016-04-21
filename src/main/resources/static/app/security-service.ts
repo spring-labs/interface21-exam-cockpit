@@ -25,7 +25,10 @@ export class SecurityService {
         let options = new RequestOptions({
             headers: this._authHeader
         });
-        return this._http.post(this._loginUrl, null, options)
+        let body = JSON.stringify({ username, password });
+        console.log("Logging in...")
+        return this._http.post(this._loginUrl, body, options)
+            .map(res => console.log(res))
             .catch(this._handleError)
     }
 
