@@ -1,6 +1,7 @@
 import { Injectable } from 'angular2/core';
 import { Http, Response, Headers, RequestOptions } from 'angular2/http';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/Rx';
 
 @Injectable()
 export class SecurityService {
@@ -22,14 +23,14 @@ export class SecurityService {
     
     login(username:string, password:string) {
         this._authHeader = this._buildAuthHeader(username, password)
-        let options = new RequestOptions({
-            headers: this._authHeader
-        });
         let body = JSON.stringify({ username, password });
         console.log("Logging in...")
-        return this._http.post(this._loginUrl, body, options)
-            .map(res => console.log(res))
+        return this._http.post(this._loginUrl, body, new RequestOptions({headers: this._authHeader}))
+            .map(res => {
+                console.log(res)}
+                )
             .catch(this._handleError)
+            .subscribe(r => console.log(r))
     }
 
     private _buildAuthHeader(user: string, password: string): Headers {

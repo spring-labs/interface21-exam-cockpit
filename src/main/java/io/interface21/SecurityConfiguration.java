@@ -44,7 +44,7 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .httpBasic()
         .and()
             .authorizeRequests()
-            .antMatchers("/index.html", "/home.html", "/login.html", "/").permitAll()
+            .antMatchers("/index.html", "/sec/logout", "/").permitAll()
             .anyRequest()
             .authenticated()
         .and()
@@ -54,6 +54,7 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .csrf().csrfTokenRepository(csrfTokenRepository())
         ;
     }
+
 
     private CsrfTokenRepository csrfTokenRepository() {
         HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
