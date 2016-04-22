@@ -47,11 +47,15 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/index.html", "/sec/logout", "/").permitAll()
             .anyRequest()
             .authenticated()
+        /*.and()
+            .formLogin()
+            .loginProcessingUrl("/sec/login")*/
         .and()
             .logout().logoutUrl("/sec/logout")
         .and()
             .addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class)
-        .csrf().csrfTokenRepository(csrfTokenRepository())
+        .csrf()
+            .csrfTokenRepository(csrfTokenRepository())
         ;
     }
 

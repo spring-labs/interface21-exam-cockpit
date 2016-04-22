@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.core.Ordered;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -42,7 +43,8 @@ public class ExamCockpitApplication extends WebMvcConfigurerAdapter {
 		return frb;
 	}
 
-	@RequestMapping("/sec/login")
+	@RequestMapping("/login")
+	@ResponseBody
 	public Principal login(Principal user) {
 		return user;
 	}

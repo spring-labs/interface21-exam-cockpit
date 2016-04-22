@@ -3,19 +3,28 @@ import { Http, Response, Headers, RequestOptions } from 'angular2/http';
 import { Observable } from 'rxjs/Observable';
 import { Exam } from './exam.ts';
 
-//import { EXAMS } from './mock-exams';
+import { ApiGateway } from "./apiGateway.service";
 
 @Injectable()
 export class ExamService {
 
     currentExam: Exam;
 
-    constructor(private _http: Http) { }
+    constructor(
+        private _http: Http,
+        private _apiGateway: ApiGateway
+    ) { }
 
     //    private _examsURL = './exams.js';
     private _examsURL = 'http://localhost:8080/api/exams';
 
     getExams() {
+        var stream = this._apiGateway.get(
+            this._examsURL
+        )
+        .map(res => res.json().data._embedded.exams)
+        return stream;
+        /*
         let options = new RequestOptions({
             headers: this._appendAuthorizationHeader(new Headers())
         });
@@ -25,6 +34,7 @@ export class ExamService {
                 <Exam[]>res.json().data._embedded.exams
             })
             .catch(this._handleError);
+            */
     }
 
     getExam(id: number) {

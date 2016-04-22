@@ -37,13 +37,13 @@ import { LoginComponent } from './login.component';
     {
         path: '/login',
         name: 'Login',
-        component: LoginComponent
+        component: LoginComponent,
+        useAsDefault: true
     },
     {
         path: '/exams',
         name: 'Exams',
-        component: ExamsComponent,
-        useAsDefault: true
+        component: ExamsComponent
     },
     {
         path: '/exam-detail',
@@ -80,7 +80,7 @@ export class AppComponent {
 
     constructor(
         private _securityService: SecurityService,
-        private _router:Router
+        private _router: Router
     ) { }
     
     logout() {
