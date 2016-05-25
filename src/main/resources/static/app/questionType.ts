@@ -1,6 +1,6 @@
 export enum QuestionType {
-    MULTIPLE,
-    SINGLE,
+    MULTIPLE, // Multiple Choice Multiple Response (MCMR)
+    SINGLE, // Multiple Choice Single Response (MCSR)
     TEXTUAL,
     PUZZLE
 }
