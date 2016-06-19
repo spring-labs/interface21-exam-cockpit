@@ -23,6 +23,7 @@
         <ameba-lib.version>1.5-SNAPSHOT</ameba-lib.version>
         <java.version>1.8</java.version>
         <lombok.version>1.16.6</lombok.version>
+        <jgitflow-maven-plugin.version>1.0-m5.1</jgitflow-maven-plugin.version>
     </properties>
 
     <profiles>
@@ -122,6 +123,13 @@
                 <artifactId>ameba-lib</artifactId>
                 <version>${ameba-lib.version}</version>
             </dependency>
+
+            <!-- jGitFlow -->
+            <dependency>
+                <groupId>external.atlassian.jgitflow</groupId>
+                <artifactId>jgitflow-maven-plugin</artifactId>
+                <version>${jgitflow-maven-plugin.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -168,6 +176,17 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <!-- jGitFlow -->
+            <plugin>
+                <groupId>external.atlassian.jgitflow</groupId>
+                <artifactId>jgitflow-maven-plugin</artifactId>
+                <version>${jgitflow-maven-plugin.version}</version>
+                <configuration>
+                    <!-- see goals wiki page for configuration options -->
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 
